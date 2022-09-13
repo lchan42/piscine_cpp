@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:05:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 18:35:25 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/13 19:35:16 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,28 @@ void	PhoneBook::printAllContact() {
 
 	this->printTabHeader();
 	for (int i = 0; i < PHBOOK_SIZE; i++)
-		this->contactTab[i].printLine();
+	{
+		std::cout << std::right << std::setw(10) << i << "|";
+		this->contactTab[i].printLine(INFO_NBR);
+	}
+}
+
+void	PhoneBook::usrImput() {
+	std::string	usrImput;
+
+	while (1)
+	{
+		std::cout << "Input : ";
+		std::getline (std::cin, usrImput); // need to protect in case of end of fine
+		if (usrImput.compare("ADD") == 0)
+			this->addContact();
+		else if (usrImput.compare("SEARCH") == 0)
+			this->printAllContact();
+		else if (usrImput.compare("EXIT") == 0)
+			break;
+		else
+			std::cout << ERR_MSG;
+	}
 }
 
 PhoneBook::~PhoneBook(){

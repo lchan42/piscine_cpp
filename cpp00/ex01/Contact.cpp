@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:59:48 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 18:37:04 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/13 18:59:49 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Contact::Contact (void) {
 
 void	Contact::printPrompt(int i) const {
 
-	//const char* a[6] = { FIRST, LAST, NICK, PHONE, SECRET, NULL};
 	std::string a[5] = { FIRST, LAST, NICK, PHONE, SECRET};
 	std::cout << (a[i] + " : ");
 };
@@ -42,15 +41,25 @@ void	Contact::addLine() {
 	}
 };
 
-void	Contact::printLine() {
+void	Contact::printLine(int limit) {
 
-	for (int i = 0; i < INFO_NBR; i++)
+	for (int i = 0; i < limit - 1; i++)
 	{
-		std::cout
-		<< std::right
-		<< std::setw(10)
-		<< this->getInfo(i)
-		<< "|";
+		if (info[i].length() <= 10)
+		{
+			std::cout
+			<< std::right
+			<< std::setw(10)
+			<< this->getInfo(i)
+			<< "|";
+		}
+		else
+		{
+			std::cout
+			<< this->getInfo(i).substr(0, 9)
+			<< "."
+			<< "|";
+		}
 	}
 	std::cout << "\n";
 }

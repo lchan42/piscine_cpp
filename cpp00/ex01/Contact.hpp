@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:33:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 18:31:43 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/13 19:14:28 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,17 @@ class Contact{
 		Contact();
 		~Contact();
 
-
-		void				printPrompt(int i) const;
 		const std::string	&getInfo (int type) const;
 		void				addLine();
-		void				printLine();
+		void				printLine(int limit);
+
+	private:
+
+		std::string			info[INFO_NBR];
+		void				printPrompt(int i) const;
+};
+
+#endif
 
 		// std::cout << MaString << std::endl;
 
@@ -42,9 +48,3 @@ class Contact{
 		// if (mastring.empty())
 		// int *i;
 		// (*i)
-
-	private:
-		std::string info[INFO_NBR];
-};
-
-#endif
