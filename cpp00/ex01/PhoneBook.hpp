@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:33:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/12 20:17:36 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/13 18:35:27 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ class PhoneBook{
 		PhoneBook();
 		~PhoneBook();
 
-		Contact	tab[8];
-		void	add(void);
-		Contact	*search(char *research);
+		Contact	contactTab[8];
+		Contact	*schContact(char *research) const;
+		void	printAllContact(void);
+		//void	printContact(void);
+		void	printTabHeader();
+		void	addContact(void);
 		void	exit(void);
 
 	private:

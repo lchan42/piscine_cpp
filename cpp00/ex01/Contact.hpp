@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:33:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/12 20:17:23 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/13 18:31:43 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,36 @@
 
 # include "libraries.hpp"
 
+# define INDEX "index"
+# define FIRST "first name"
+# define LAST "last name"
+# define NICK "nickname"
+# define PHONE "phone nbr"
+# define SECRET "darkest secret"
+
 class Contact{
 	public:
 
 		Contact();
 		~Contact();
 
-	private:
-		char	*_first_name;
-		char	*_last_name;
-		char	*_nickname;
-		char	*_phone_number;
-		char	*_darkest_secret;
 
+		void				printPrompt(int i) const;
+		const std::string	&getInfo (int type) const;
+		void				addLine();
+		void				printLine();
+
+		// std::cout << MaString << std::endl;
+
+		// std::string mastring;
+		// std::string mastring("test");
+		// std::string mastring2 = mastring;
+		// if (mastring.empty())
+		// int *i;
+		// (*i)
+
+	private:
+		std::string info[INFO_NBR];
 };
 
 #endif
