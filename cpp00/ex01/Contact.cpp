@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:59:48 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 18:59:49 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/14 15:56:53 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ void	Contact::addLine() {
 	{
 		this->printPrompt(i);
 		std::getline (std::cin, this->info[i]);
- 		if(!std::cin)
-		{
-			if(std::cin.eof())
-				{
-					std::cout << "\n";
-					return ;
-				}
-			else
-				std::cout << "other failure\n";
-		}
+		if(std::cin.eof())
+			return ;
+ 		// if(!std::cin)
+		// {
+		// 	if(std::cin.eof())
+		// 			return ;
+		// 	else
+		// 		std::cout << "other failure\n";
+		// }
 	}
 };
 
@@ -62,6 +61,19 @@ void	Contact::printLine(int limit) {
 		}
 	}
 	std::cout << "\n";
+}
+
+void	Contact::printAllInfo() const {
+	if (this->getInfo(0).empty())
+	{
+		for (int i = 0; i < INFO_NBR; i++)
+		{
+			this->printPrompt(i);
+			std::cout << getInfo(i) << "\n";
+		}
+	}
+	else
+		std::cout << EMPTY_MSG;
 }
 
 const std::string	&Contact:: getInfo(int line) const {

@@ -6,16 +6,15 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:05:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 19:35:16 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/14 18:23:42 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(){
+PhoneBook::PhoneBook() : index(0) {
 
-	std::cout << "constructeur PhoneBook called" <<std::endl;
-	PhoneBook::index = 0;
+	//std::cout << "constructeur PhoneBook called" <<std::endl;
 }
 
 void	PhoneBook::addContact() {
@@ -46,19 +45,48 @@ void	PhoneBook::printAllContact() {
 	}
 }
 
+//void	PhoneBook::
+
+void	PhoneBook::printOneContact(){
+
+	int	i = -1;
+
+	this->printAllContact();
+	while (!(i >= 1 && i <= 8))
+	{
+		//this->stream.clear();
+		std::cout << SCH_MSG;
+		std::getline (std::cin, this->input);
+
+		if (std::cin.eof())
+			return ;
+		std::cout << "this stream = " << this->stream.str() << "\n";
+		this->stream << input;
+		std::cout << "input = " << this->input << "\n";
+		this->stream >> i;
+		std::cout << this->stream.good() << std::endl;
+		std::cout << this->stream.bad() << std::endl;
+		std::cout << this->stream.fail() << std::endl;
+		std::cout << "i = " << i << "\n";
+		if (i > 0 && i <= 8)
+			this->contactTab[i].printAllInfo();
+		else
+			std::cout << ERR_SCH;
+	}
+}
+
 void	PhoneBook::usrImput() {
-	std::string	usrImput;
 
 	while (1)
 	{
 		std::cout << "Input : ";
-		std::getline (std::cin, usrImput); // need to protect in case of end of fine
-		if (usrImput.compare("ADD") == 0)
+		std::getline (std::cin, this->input);
+		if (this->input == "EXIT" || std::cin.eof())
+			return ;
+		else if (this->input == "ADD" )
 			this->addContact();
-		else if (usrImput.compare("SEARCH") == 0)
-			this->printAllContact();
-		else if (usrImput.compare("EXIT") == 0)
-			break;
+		else if (this->input == "SEARCH")
+			this->printOneContact();
 		else
 			std::cout << ERR_MSG;
 	}
@@ -66,5 +94,5 @@ void	PhoneBook::usrImput() {
 
 PhoneBook::~PhoneBook(){
 
-	std::cout << "destructor PhoneBook called" <<std::endl;
+	//std::cout << "destructor PhoneBook called" <<std::endl;
 }

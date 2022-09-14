@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:33:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/13 19:14:28 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/14 15:56:43 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # define NICK "nickname"
 # define PHONE "phone nbr"
 # define SECRET "darkest secret"
+# define EMPTY_MSG "this line seems empty\n"
 
 class Contact{
 	public:
@@ -31,6 +32,7 @@ class Contact{
 		const std::string	&getInfo (int type) const;
 		void				addLine();
 		void				printLine(int limit);
+		void				printAllInfo() const;
 
 	private:
 
