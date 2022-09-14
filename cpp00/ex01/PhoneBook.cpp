@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:05:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/14 18:23:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/14 19:59:23 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	PhoneBook::printAllContact() {
 	this->printTabHeader();
 	for (int i = 0; i < PHBOOK_SIZE; i++)
 	{
-		std::cout << std::right << std::setw(10) << i << "|";
+		std::cout << std::right << std::setw(10) << i + 1 << "|";
 		this->contactTab[i].printLine(INFO_NBR);
 	}
 }
@@ -54,22 +54,20 @@ void	PhoneBook::printOneContact(){
 	this->printAllContact();
 	while (!(i >= 1 && i <= 8))
 	{
-		//this->stream.clear();
+		this->stream.clear();
 		std::cout << SCH_MSG;
-		std::getline (std::cin, this->input);
-
-		if (std::cin.eof())
+		if (std::getline (std::cin, this->input) && std::cin.eof())
 			return ;
-		std::cout << "this stream = " << this->stream.str() << "\n";
+		//std::cout << "this stream = " << this->stream.str() << "\n";
 		this->stream << input;
-		std::cout << "input = " << this->input << "\n";
+		//std::cout << "input = " << this->input << "\n";
 		this->stream >> i;
-		std::cout << this->stream.good() << std::endl;
-		std::cout << this->stream.bad() << std::endl;
-		std::cout << this->stream.fail() << std::endl;
-		std::cout << "i = " << i << "\n";
+		//std::cout << this->stream.good() << std::endl;
+		// std::cout << this->stream.bad() << std::endl;
+		// std::cout << this->stream.fail() << std::endl;
+		// std::cout << "i = " << i << "\n";
 		if (i > 0 && i <= 8)
-			this->contactTab[i].printAllInfo();
+			this->contactTab[i - 1].printAllInfo();
 		else
 			std::cout << ERR_SCH;
 	}

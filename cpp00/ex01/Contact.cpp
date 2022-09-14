@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:59:48 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/14 15:56:53 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/14 19:58:26 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	Contact::printLine(int limit) {
 }
 
 void	Contact::printAllInfo() const {
-	if (this->getInfo(0).empty())
+	if (! this->getInfo(0).empty())
 	{
 		for (int i = 0; i < INFO_NBR; i++)
 		{
