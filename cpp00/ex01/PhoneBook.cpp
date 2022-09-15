@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 20:05:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/14 19:59:23 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/15 17:28:24 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ PhoneBook::PhoneBook() : index(0) {
 	//std::cout << "constructeur PhoneBook called" <<std::endl;
 }
 
-void	PhoneBook::addContact() {
+void	PhoneBook::_add() {
 
 	this->contactTab[this->index].addLine();
 	if (this->index + 1 < PHBOOK_SIZE)
@@ -26,7 +26,7 @@ void	PhoneBook::addContact() {
 		this->index = 0;
 }
 
-void	PhoneBook::printTabHeader(){
+void	PhoneBook::_printTabHeader(){
 
 	std::string a[INFO_NBR] = { INDEX, FIRST, LAST, NICK, PHONE};
 
@@ -35,39 +35,44 @@ void	PhoneBook::printTabHeader(){
 	std::cout << "\n";
 }
 
-void	PhoneBook::printAllContact() {
+void	PhoneBook::_printAllContact() {
 
-	this->printTabHeader();
+	this->_printTabHeader();
 	for (int i = 0; i < PHBOOK_SIZE; i++)
 	{
 		std::cout << std::right << std::setw(10) << i + 1 << "|";
-		this->contactTab[i].printLine(INFO_NBR);
+		this->contactTab[i].printTabLine(INFO_NBR);
 	}
+	std::cout << std::endl;
 }
 
-//void	PhoneBook::
+int		PhoneBook:: _convstoi(std::string input){
 
-void	PhoneBook::printOneContact(){
+	std::stringstream	stream;
+	int					i;
+
+	i = 0;
+	stream << input;
+	stream >> i;
+	return (i);
+}
+
+void	PhoneBook::_search(){
 
 	int	i = -1;
 
-	this->printAllContact();
+	this->_printAllContact();
 	while (!(i >= 1 && i <= 8))
 	{
-		this->stream.clear();
 		std::cout << SCH_MSG;
-		if (std::getline (std::cin, this->input) && std::cin.eof())
+		if (!(std::getline(std::cin, this->input).good()))
+		{
+			std::cout << std::endl;
 			return ;
-		//std::cout << "this stream = " << this->stream.str() << "\n";
-		this->stream << input;
-		//std::cout << "input = " << this->input << "\n";
-		this->stream >> i;
-		//std::cout << this->stream.good() << std::endl;
-		// std::cout << this->stream.bad() << std::endl;
-		// std::cout << this->stream.fail() << std::endl;
-		// std::cout << "i = " << i << "\n";
+		}
+		i = _convstoi(this->input);
 		if (i > 0 && i <= 8)
-			this->contactTab[i - 1].printAllInfo();
+			this->contactTab[i - 1].printContact();
 		else
 			std::cout << ERR_SCH;
 	}
@@ -75,16 +80,16 @@ void	PhoneBook::printOneContact(){
 
 void	PhoneBook::usrImput() {
 
-	while (1)
+	while (!std::cin.eof())
 	{
-		std::cout << "Input : ";
-		std::getline (std::cin, this->input);
-		if (this->input == "EXIT" || std::cin.eof())
-			return ;
+		std::cout << DFL_MSG;
+		if (!std::getline (std::cin, this->input).good()
+		|| this->input == "EXIT")
+			break ;
 		else if (this->input == "ADD" )
-			this->addContact();
+			this->_add();
 		else if (this->input == "SEARCH")
-			this->printOneContact();
+			this->_search();
 		else
 			std::cout << ERR_MSG;
 	}

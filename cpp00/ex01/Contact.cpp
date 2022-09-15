@@ -6,74 +6,65 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:59:48 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/14 19:58:26 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/15 17:31:38 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
 Contact::Contact (void) {
-	std::cout << "constructor Contact Called" << std::endl;
+	//std::cout << "constructor Contact Called" << std::endl;
 }
 
-void	Contact::printPrompt(int i) const {
+void	Contact::_printPrompt(int i) const {
 
 	std::string a[5] = { FIRST, LAST, NICK, PHONE, SECRET};
 	std::cout << (a[i] + " : ");
 };
 
+void	Contact::_emptyContact(){
+	for (int i = 0; i < INFO_NBR; i++)
+		this->info[i].clear();
+}
+
 void	Contact::addLine() {
 
-	for (int i = 0 ; i < INFO_NBR ; i++)
+	this->_emptyContact();
+	for (int i = 0; i < INFO_NBR; i++)
 	{
-		this->printPrompt(i);
-		std::getline (std::cin, this->info[i]);
-		if(std::cin.eof())
-			return ;
- 		// if(!std::cin)
-		// {
-		// 	if(std::cin.eof())
-		// 			return ;
-		// 	else
-		// 		std::cout << "other failure\n";
-		// }
+		while (this->info[i].empty())
+		{
+			this->_printPrompt(i);
+			if (!std::getline (std::cin, this->info[i]).good())
+				return ;
+		}
 	}
 };
 
-void	Contact::printLine(int limit) {
+void	Contact::printTabLine(int limit) const {
 
 	for (int i = 0; i < limit - 1; i++)
 	{
 		if (info[i].length() <= 10)
-		{
-			std::cout
-			<< std::right
-			<< std::setw(10)
-			<< this->getInfo(i)
-			<< "|";
-		}
+			std::cout << std::right << std::setw(10) << this->getInfo(i) << "|";
 		else
-		{
-			std::cout
-			<< this->getInfo(i).substr(0, 9)
-			<< "."
-			<< "|";
-		}
+			std::cout << this->getInfo(i).substr(0, 9) << ".|";
 	}
-	std::cout << "\n";
+	std::cout << std::endl;
 }
 
-void	Contact::printAllInfo() const {
+void	Contact::printContact() const {
 	if (! this->getInfo(0).empty())
 	{
 		for (int i = 0; i < INFO_NBR; i++)
 		{
-			this->printPrompt(i);
+			this->_printPrompt(i);
 			std::cout << getInfo(i) << "\n";
 		}
 	}
 	else
 		std::cout << EMPTY_MSG;
+	std::cout << std::endl;
 }
 
 const std::string	&Contact:: getInfo(int line) const {
@@ -81,7 +72,7 @@ const std::string	&Contact:: getInfo(int line) const {
 };
 
 Contact::~Contact() {
-	std::cout << "destructor Contact Called" << std::endl;
+	//std::cout << "destructor Contact Called" << std::endl;
 }
 
 

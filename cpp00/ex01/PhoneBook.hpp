@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:33:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/14 15:59:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/15 14:53:59 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,32 @@
 # include "Contact.hpp"
 # include "libraries.hpp"
 
-# define ERR_MSG "possible inputs are ADD, SEARCH, EXIT. Please try again\n"
-# define SCH_MSG "enter contact index (1 - 8): "
-# define ERR_SCH "index MUST be between 1 and 8\n"
-
+# define WLC_MSG "Welcome to my awesome phonebook!"
+# define DFL_MSG "input (ADD, SEARCH, EXIT): "
+# define ERR_MSG "wrong input, please try again\n"
+# define SCH_MSG "index (1-8): "
+# define ERR_SCH "wrong index\n"
 class PhoneBook{
 	public:
 
 		PhoneBook();
 		~PhoneBook();
 
-		void	usrImput(void);
+		void				usrImput(void);
 
 	private:
 
 		int					index;
 		Contact				contactTab[8];
 		std::string			input;
-		std::stringstream	stream;
 
-		void	addContact(void);
-		void	printAllContact(void);
-		void	printOneContact();
-		void	printTabHeader();
-		void	exit(void);
-		Contact	*schContact(char *research) const;
+		void				_add(void);
+		void				_search();
+		int					_convstoi(std::string s);
+		void				_printTabHeader();
+		void				_printAllContact(void);
+
+
 };
 
 #endif
