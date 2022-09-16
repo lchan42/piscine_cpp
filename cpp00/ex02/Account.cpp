@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:00:28 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/16 14:39:30 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/16 14:51:43 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-
 // ************************************************************************** //
 //                                public	                                  //
 // ************************************************************************** //
-
 int Account::getNbAccounts() {
 	return (_nbAccounts);
 }
@@ -132,19 +130,17 @@ void	Account::displayStatus( void ) const{
 // ************************************************************************** //
 //                                private	                                  //
 // ************************************************************************** //
-
 void	Account::_displayTimestamp( void )
 {
 	time_t	now = time(0);
 	tm 		*ltm = localtime(&now);
 
-	std::cout << "[" << 1900 + ltm->tm_year;		//year
-
-	std::cout << std::setfill('0') << std::setw(2)<< 1 + ltm->tm_mon;					//month
-	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_mday;						//day
-	std::cout << "_"<< ltm->tm_hour;													//hour
-	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_min;					//min
-	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_sec << "] ";				//sec
-//	std::cout << "[19920104_091532] "; //for the correction;
+	std::cout	<< "[" << 1900 + ltm->tm_year
+				<< std::setfill('0') << std::setw(2)<< 1 + ltm->tm_mon					//month
+				<< std::setfill('0') << std::setw(2)<< ltm->tm_mday
+				<< "_"<< ltm->tm_hour
+				<< std::setfill('0') << std::setw(2)<< ltm->tm_min
+				<< std::setfill('0') << std::setw(2)<< ltm->tm_sec << "] ";
+	// std::cout << "[19920104_091532] "; //for the correction;
 	return;
 }
