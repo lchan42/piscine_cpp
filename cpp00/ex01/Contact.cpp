@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 19:59:48 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/15 17:31:38 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/16 16:24:05 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,4 @@ const std::string	&Contact:: getInfo(int line) const {
 Contact::~Contact() {
 	//std::cout << "destructor Contact Called" << std::endl;
 }
-
-
 

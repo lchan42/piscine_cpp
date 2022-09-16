@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:00:28 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/16 14:51:43 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/16 16:56:55 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	Account::_displayTimestamp( void )
 	tm 		*ltm = localtime(&now);
 
 	std::cout	<< "[" << 1900 + ltm->tm_year
-				<< std::setfill('0') << std::setw(2)<< 1 + ltm->tm_mon					//month
+				<< std::setfill('0') << std::setw(2)<< 1 + ltm->tm_mon
 				<< std::setfill('0') << std::setw(2)<< ltm->tm_mday
 				<< "_"<< ltm->tm_hour
 				<< std::setfill('0') << std::setw(2)<< ltm->tm_min
