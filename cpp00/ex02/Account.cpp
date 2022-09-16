@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 18:00:28 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/16 13:53:32 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/16 14:39:30 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int	Account::_totalNbWithdrawals = 0;
 // ************************************************************************** //
 //                                public	                                  //
 // ************************************************************************** //
-
-
 
 int Account::getNbAccounts() {
 	return (_nbAccounts);
@@ -45,9 +43,7 @@ int	Account::getNbWithdrawals() {
 
 void	Account::displayAccountsInfos() {
 	_displayTimestamp();
-	//int	nbaccount;
 
-	//_displayTimestamp();
 	std::cout 	<< "accounts:" << getNbAccounts() << ";"
 				<< "total:" << getTotalAmount() << ";"
 				<< "deposits:" << getNbDeposits() << ";"
@@ -108,13 +104,12 @@ bool	Account::makeWithdrawal( int withdrawal ){
 	if (new_amount >= 0)
 	{
 		this->_nbWithdrawals++;
-		this->_totalNbWithdrawals++;
-		this->_nbWithdrawals++;
 		this->_amount -= withdrawal;
+		this->_totalNbWithdrawals++;
 		this->_totalAmount -= withdrawal;
 		std::cout	<< withdrawal << ";"
 					<< "amount:" << _amount << ";"
-					<< "nb_deposits:" << _nbDeposits << std::endl;
+					<< "nb_withdrawals:" << _nbWithdrawals << std::endl;
 		return (1);
 	}
 	else
@@ -134,7 +129,9 @@ void	Account::displayStatus( void ) const{
 
 }
 
-/***************************************** private *****************************************/
+// ************************************************************************** //
+//                                private	                                  //
+// ************************************************************************** //
 
 void	Account::_displayTimestamp( void )
 {
@@ -142,13 +139,12 @@ void	Account::_displayTimestamp( void )
 	tm 		*ltm = localtime(&now);
 
 	std::cout << "[" << 1900 + ltm->tm_year;		//year
-	if (1 + ltm->tm_mon < 10)
 
 	std::cout << std::setfill('0') << std::setw(2)<< 1 + ltm->tm_mon;					//month
 	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_mday;						//day
-	std::cout << "_"<< 5+ltm->tm_hour;													//hour
-	std::cout << std::setfill('0') << std::setw(2)<< 30+ltm->tm_min;					//min
-	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_sec << "] ";					//sec
-
+	std::cout << "_"<< ltm->tm_hour;													//hour
+	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_min;					//min
+	std::cout << std::setfill('0') << std::setw(2)<< ltm->tm_sec << "] ";				//sec
+//	std::cout << "[19920104_091532] "; //for the correction;
 	return;
 }
