@@ -6,15 +6,15 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/09/18 16:11:11 by lchan            ###   ########.fr        #
+#    Updated: 2022/09/18 17:33:42 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	SedIsForLosers
-SRCS	=	main.cpp Replace.cpp
+NAME	=	Harl
+SRCS	=	main.cpp Harl.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 COMPIL	=	c++
-FLAGS	=	-std=c++98 -Wall -Wextra -Werror -g3
+FLAGS	=	-std=c++98 -Wall -Wextra -Werror
 
 
 # $< = dependances | $@ = regles -> .o
