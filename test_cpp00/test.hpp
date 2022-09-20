@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:15:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/12 18:18:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/20 15:43:31 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,39 @@ class Sample4
 	private:
 };
 
+class Integer {
+
+	public :
+		Integer( int const n );
+		~Integer(void);
+
+		int getValue( void ) const;
+
+		Integer	&	operator=( Integer const & rhs ); 	// la fonction a pour vovation de modifier l une des valeurs de l instance courante
+														//Integer & -> la fonction renvoie une reference sur l'instance courante
+														//permet de faire a = b = c = d; (ici il est necessaire de faire les verifications une par une)
+		Integer	operator+( Integer const & rhs )const ; //instance courange non modifie donc la fonction est const
+	private :
+		int	_n;
+};
+//right hand side
 #endif
+
+class Simple {
+
+	public :
+		Simple( void );
+		Simple( int const n );
+		Simple( Sample const & src); //
+		~Simple( void );
+
+		Simple &	operator=( Simple const & rhs );
+
+		int	getFoo () const;
+	private :
+		int	foo;
+
+
+};
+
+	std::ostream &	operator<<(std::ostream o, Simple const & i );

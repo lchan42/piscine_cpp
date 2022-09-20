@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 11:39:29 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/12 18:21:06 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/20 15:42:46 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,3 +94,63 @@ Sample4::~Sample4(void){
 void	Sample4::bar(void) const{
 	std::cout << "bar called" << std::endl;
 }
+
+/************************ integer ************************/
+
+Integer::Integer(int const n) : _n(n){
+
+	std::cout << "Integer constuctor called" << std::endl;
+}
+
+
+Integer::~Integer( void ){
+
+	std::cout << "Integer destructor called" << std::endl;
+}
+
+Integer & Integer::operator=( Integer const & rhs){
+
+	this->_n = rhs.getValue();
+
+	return *this;
+}
+
+Integer Integer::operator+(Integer const & rhs) const {
+
+	return(this->_n + rhs.getValue());
+}
+
+
+/************************ Simple ************************/
+
+Simple::Simple( void ){
+	std::cout << "Constructor called" << std::endl;
+}
+
+Simple::Simple( int const n ) : foo(n){
+	std::cout << "Constructor called" << std::endl;
+}
+
+Simple::Simple( Sample const & src){
+	std::cout << "copy constructor called" << std::endl;
+	*this = src;
+
+	return;
+
+}
+
+Simple::~Simple( void ){
+	std::cout << "Destructor called" << std::endl;
+
+}
+
+Simple & Simple::operator=(Simple const & rhs){
+	std::cout << "Assignment operator called" << std::endl;
+
+	if ( this != &rhs )
+		this->foo = rhs.getFoo();
+
+	return (*this);
+}
+
+

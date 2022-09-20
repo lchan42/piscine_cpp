@@ -110,3 +110,46 @@ il vaut mieux oublie de mettre une variable en public qu'en prive. Du coup il va
 - f = &Sample::bar
 
 instancier = declarer;
+
+
+>>>>>>>>>>>>>>>>>> polymorphisme ad-hoc <<<<<<<<<<<<<<<<<<
+un meme nom de fonction peut prendre des parametre different.
+posibilite de declarer plusieurs fonction de meme nom mais a parametre different.
+	== fonction surchargees (ou surcharge)
+	---> differente semantique
+
+>>>>>>>>>>>>>>>>>> surcharge d'operateur <<<<<<<<<<<<<<<<<<
+ajout de semantique
+notation infixe : 1 + 1
+notation prefixe : + 1 1  --> +(1, 1) --> notation proche d/une fonction(dite notation fonctionnelle)
+notation postfixe : 1 1 +
+surcharge doit obeir a certain regle pour ne pas faire nptk
+>>>>>>>>>>>>>>>>>> forme canomique d'une class <<<<<<<<<<<<<<<<<<
+bonne pratique.
+- constructeur default
+- constructeur copie (qui prend en parametre une instance de la classe en question pour en creeer une copie)
+	constructeur prend une instance de la meme classe en paramettre;
+	permet de copier une instance (une nouvelle instance est cree)
+- operateur = pour pouvoir faire des assignations intra class
+	permet de mettre a jour la valeur d'une instance deja cree.
+- destructeur
+
+
+
+en plus il est de bon ton d'ajouter
+- accesseur sur valeur membre
+- surcharge de redirection de flux de la valeur membre
+- fontion membre permettant d/avoir une version version string pour afficher.
+
+
+41.41.41.0
+255.255.255.192
+0 - 63
+
+64 - 127
+
+
+
+
+
+256 - 240 = 16

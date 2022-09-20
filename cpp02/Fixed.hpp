@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 17:22:17 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/19 13:21:34 by lchan            ###   ########.fr       */
+/*   Created: 2022/09/20 12:10:19 by lchan             #+#    #+#             */
+/*   Updated: 2022/09/20 15:56:15 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
 
-#include <iostream>
-#include <string>
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-class Zombie {
+# include <iostream>
 
-	public :
 
-		void	announce( void );
-		void	setName(std::string name);
+class Fixed {
 
-		Zombie(std::string name);
-		Zombie( void );
-		~Zombie( void );
+	public:
+		Fixed();
+		Fixed(Fixed const & src);
+		~Fixed();
 
-	private :
-		std::string	name;
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw);
+
+		Fixed &	operator=(Fixed const & rhs );
+
+	private:
+		int					raw;
+		static const int	exposant;
 };
+
 
 
 #endif
