@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/20 12:10:19 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/20 15:56:15 by lchan            ###   ########.fr       */
+/*   Created: 2022/09/20 12:10:24 by lchan             #+#    #+#             */
+/*   Updated: 2022/09/20 15:56:47 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef FIXED_HPP
-# define FIXED_HPP
-
-# include <iostream>
+#include "Fixed.hpp"
 
 
-class Fixed {
+const int	Fixed::exposant = 0;
 
-	public:
-		Fixed();
-		Fixed(Fixed const & src);
-		~Fixed();
+int main( void ) {
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
 
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw);
+	c = b;
 
-		Fixed &	operator=(Fixed const & rhs );
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-	private:
-		int					raw;
-		static const int	exposant;
-};
-
-
-
-#endif
+	return 0;
+}
