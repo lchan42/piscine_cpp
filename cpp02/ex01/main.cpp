@@ -6,14 +6,14 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:24 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/20 15:56:47 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/20 19:37:19 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 
-const int	Fixed::exposant = 0;
+const int	Fixed::fractional = 0;
 
 int main( void ) {
 	Fixed a;

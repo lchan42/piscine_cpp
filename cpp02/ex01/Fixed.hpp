@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:19 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/20 18:54:41 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/20 19:10:51 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class Fixed {
 
 
 		Fixed &	operator=(Fixed const & rhs );
-		float toFloat( void ) const;
-		int toInt( void ) const;
+		float toFloat( void ) const; //theorie : pour l'affichage ostream;
+		int toInt( void ) const; //theorie : pour le operator, convertie la valeur en nombre entier et la place dans raw
 
 	private:
 		int					raw;
