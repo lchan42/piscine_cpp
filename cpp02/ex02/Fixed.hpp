@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:19 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/22 15:17:37 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/22 18:13:55 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,25 @@ class Fixed {
 
 
 		Fixed &	operator=(Fixed const & rhs );
-		float	toFloat( void ) const;
+		Fixed	operator+(Fixed const & rhs );
+		Fixed	operator-(Fixed const & rhs );
+		Fixed	operator*(Fixed const & rhs );
+		Fixed	operator/(Fixed const & rhs );
+
+		bool	operator>(Fixed const & rhs) const;
+		bool	operator<(Fixed const & rhs) const;
+		bool	operator>=(Fixed const & rhs) const;
+		bool	operator<=(Fixed const & rhs) const;
+		bool	operator==(Fixed const & rhs) const;
+		bool	operator!=(Fixed const & rhs) const;
+
+		Fixed &	operator++(void);
+		Fixed	operator++(int i);
+		Fixed &	operator--(void);
+		Fixed	operator--(int i);
+
 		int		toInt( void ) const;
+		float	toFloat( void ) const;
 
 	private:
 		int					raw;

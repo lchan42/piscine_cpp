@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 16:15:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/20 15:43:31 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/21 18:26:33 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ class Integer {
 		int	_n;
 };
 //right hand side
-#endif
+
 
 class Simple {
 
@@ -107,3 +107,6 @@ class Simple {
 };
 
 	std::ostream &	operator<<(std::ostream o, Simple const & i );
+
+#endif
+
