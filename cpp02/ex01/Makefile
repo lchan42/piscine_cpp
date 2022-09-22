@@ -6,11 +6,11 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/09/20 15:47:54 by lchan            ###   ########.fr        #
+#    Updated: 2022/09/22 14:41:37 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	firstCanon
+NAME	=	usefullClass
 SRCS	=	main.cpp Fixed.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 COMPIL	=	c++

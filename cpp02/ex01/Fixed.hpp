@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:19 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/20 19:10:51 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/22 14:38:52 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,15 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 
 	public:
 		Fixed();
 		Fixed(Fixed const & src);
-		Fixed(int  const i);// conv to fixed int
-		Fixed(float const f);// conv to fixed int
+		Fixed(int  const i);
+		Fixed(float const f);
 
 		~Fixed();
 
@@ -31,14 +32,15 @@ class Fixed {
 
 
 		Fixed &	operator=(Fixed const & rhs );
-		float toFloat( void ) const; //theorie : pour l'affichage ostream;
-		int toInt( void ) const; //theorie : pour le operator, convertie la valeur en nombre entier et la place dans raw
+		int		toInt( void ) const;
+		float	toFloat( void ) const;
+
 
 	private:
 		int					raw;
 		static const int	fractional;
 };
 
-	std::ostream &	operator<<(std::ostream o, Fixed const & rhs);
+	std::ostream&	operator<<(std::ostream& o, Fixed const & rhs);
 
 #endif
