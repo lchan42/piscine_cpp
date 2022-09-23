@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   SvapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 17:15:10 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 17:31:17 by lchan            ###   ########.fr       */
+/*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
+/*   Updated: 2022/09/23 19:12:01 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "ClapTrap.hpp"
 
-int	main(void){
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-	Zombie *horde;
-	int		N = 10;
+class ScavTrap : public ClapTrap{
 
-	horde = zombieHorde(N, "Bob");
-	for (int i = 0; i < N; i++)
-		horde[i].announce();
-	delete[] horde;
-}
+		ScavTrap(const std::string &name);
+		ScavTrap(const ClapTrap &src);
+		~ScavTrap();
+
+		ScavTrap& operator=	(const ScavTrap &otherOne);
+
+		private:
+			std::string	name;
+			int			hp;
+			int			ep;
+			int			dps;
+			int			type;
+};
+#endif

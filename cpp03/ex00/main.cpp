@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:50 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 18:37:09 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/23 18:50:03 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ int	main( void ){
 	std::cout << "checking energy point" << std::endl;
 	for (int i = 0; i < 12 ; i++)
 		c1.attack("random enemy string");
-	std::cout << "checking energy point" << std::endl;
-	std::cout << "checking energy point" << std::endl;
+	std::cout << "checking repair function on no ep c1" << std::endl;
+	c1.beRepaired(10);
+	std::cout << "checking repair function" << std::endl;
 	c2.beRepaired(10);
-		c2.attack("another random enemy string");
-
+	c2.attack("another random enemy string");
+	c3 = c2;
+	c3.attack("c2");
 	return (0);
 }

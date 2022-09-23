@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 18:49:34 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/23 19:06:16 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /******************************************
  *	Constructor / destructor
  * ****************************************/
-ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0){
+ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0), type(CLAPTRAP){
 
 	std::cout << "ClapTrap " << this->name << " created" << std::endl;
 }
@@ -85,16 +85,18 @@ void	ClapTrap::beRepaired(unsigned int amount){
 
 bool	ClapTrap::checkStatus(){
 
+	std::string	typetab[3] = {"ClapTrap ", "ScavTrap ", "FragTrap "};
+
 	if (!this->hp)
 	{
-		std::cout	<< "ClapTrap " << this->name
+		std::cout	<< typetab[this->type] << this->name
 					<< this->showStatus()
 					<< " is dead and dead robot can not attack" << std::endl;
 		return (0);
 	}
 	else if (!this->ep)
 	{
-		std::cout	<< "ClapTrap " << this->name
+		std::cout	<< typetab[this->type] << this->name
 					<< this->showStatus()
 					<< " is too tired to do this action" << std::endl;
 		return (0);
