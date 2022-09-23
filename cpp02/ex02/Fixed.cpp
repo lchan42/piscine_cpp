@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/22 18:14:53 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/23 11:50:04 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,6 +172,21 @@ float Fixed::toFloat ( void ) const{
 	return (((float)this->raw / (1 << this->fractional)));
 }
 
+Fixed	Fixed::min(Fixed &a, Fixed &b){
+	return ((b > a) ? a : b);
+}
+
+const Fixed	Fixed::min(Fixed const &a, Fixed const &b){
+	return ((b > a) ? a : b);
+}
+
+Fixed	Fixed::max(Fixed &a, Fixed &b){
+	return ((a > b) ? a : b);
+}
+
+const Fixed	Fixed::max(Fixed const &a, Fixed const &b){
+	return ((a > b) ? a : b);
+}
 
 /********************************* operator overload *********************************/
 std::ostream&	operator<<(std::ostream& o, Fixed const & rhs){
