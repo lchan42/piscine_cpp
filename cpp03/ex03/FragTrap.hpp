@@ -1,0 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
+/*   Updated: 2022/09/28 21:33:19 by lchan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ClapTrap.hpp"
+
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+class FragTrap : public virtual ClapTrap {
+
+	public:
+		FragTrap(const std::string &name);
+		FragTrap(const FragTrap &src);
+		~FragTrap();
+
+		void	attack(const std::string& target);
+		void	highFivesGuys(void);
+
+	private:
+
+};
+#endif
