@@ -6,7 +6,7 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/09/28 21:14:10 by lchan            ###   ########.fr        #
+#    Updated: 2022/09/29 11:32:21 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ SRCS	=	main.cpp  ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 HEADER	=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 OBJS	=	$(SRCS:.cpp=.o)
 COMPIL	=	c++
-FLAGS	=	-std=c++98 -Wall -Wextra -Werror
+FLAGS	=	-std=c++98 -Wall -Wextra -Werror -Wshadow -Wno-shadow
 
 
 # $< = dependances | $@ = regles -> .o

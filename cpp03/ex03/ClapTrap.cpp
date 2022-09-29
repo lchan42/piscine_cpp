@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 21:30:18 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 16:20:07 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /******************************************
  *	Constructor / destructor
  * ****************************************/
+
+ClapTrap::ClapTrap() : name(""){
+	std::cout << "ClapTrap " << this->name << " created" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0), type(CLAPTRAP){
 
 	std::cout << "ClapTrap " << this->name << " created" << std::endl;
@@ -31,12 +36,12 @@ ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap " << this->name << " destroyed" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=	(const ClapTrap &otherOne){
+ClapTrap& ClapTrap::operator=	(const ClapTrap &cpy){
 
-	this->name = otherOne.name;
-	this->hp = otherOne.hp;
-	this->ep = otherOne.ep;
-	this->dps = otherOne.dps;
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
 	return (*this);
 }
 
@@ -83,11 +88,10 @@ void	ClapTrap::beRepaired(unsigned int amount){
 	}
 }
 
-
 bool	ClapTrap::checkStatus(){
 
-	std::string	typetab[4] = {"ClapTrap ", "FragTrap ", "FragTrap ", "DiamondTrap"};
-	std::string	deathMsgTab[4] = {" He was useless anyway", " Please dont repair him !", " Not a big lost btw", " Was too ugly to exist"};
+	std::string	typetab[4] = {"ClapTrap ", "FragTrap ", "FragTrap ", "DiamondTrap "};
+	std::string	deathMsgTab[4] = {" He was useless anyway", " Please dont repair him !", " Not a big lost btw", "He was too ugly to exist"};
 
 	if (this->hp <= 0)
 	{
@@ -126,4 +130,14 @@ std::string	ClapTrap::printType(){
 	std::string			typetab[4] = {"ClapTrap ", "ScavTrap ", "FragTrap ", "DiamondTrap "};
 
 	return (typetab[this->type]);
+}
+
+void	ClapTrap::printStats(){
+
+	std::cout	<< "type: " << printType() << std::endl;
+	std::cout	<< "hp: " << this->hp << " "
+				<< "ep: " << this->ep << " "
+				<< "dps: " << this->dps << " "
+
+				<< std::endl;
 }

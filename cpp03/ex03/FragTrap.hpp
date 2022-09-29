@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 21:33:19 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:43:04 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
+
 class FragTrap : public virtual ClapTrap {
 
 	public:
+		FragTrap();
 		FragTrap(const std::string &name);
 		FragTrap(const FragTrap &src);
 		~FragTrap();
 
 		void	attack(const std::string& target);
 		void	highFivesGuys(void);
+
+		FragTrap& operator=	(const FragTrap &cpy);
 
 	private:
 

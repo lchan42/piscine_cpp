@@ -6,11 +6,21 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 21:02:26 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:38:18 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
+
+FragTrap::FragTrap() : ClapTrap(){
+
+	this->name = "";
+	this->hp = 100;
+	this->ep = 100;
+	this->dps = 30;
+	this->type = FRAGTRAP;
+	std::cout << "child class FragTrap " << this->name << " created" << std::endl;
+}
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name){
 
@@ -33,15 +43,15 @@ FragTrap::~FragTrap(){
 	std::cout << "FragTrap " << this->name << " destroyed" << std::endl;
 }
 
-// FragTrap& FragTrap::operator=	(const FragTrap &otherOne){
+FragTrap& FragTrap::operator=	(const FragTrap &cpy){
 
-// 	this->name = otherOne.name;
-// 	this->hp = otherOne.hp;
-// 	this->ep = otherOne.ep;
-// 	this->dps = otherOne.dps;
-// 	this->type = otherOne.type;
-// 	return (*this);
-// }
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
+	this->type = cpy.type;
+	return (*this);
+}
 
 void	FragTrap::attack(const std::string& target){
 
@@ -56,40 +66,18 @@ void	FragTrap::attack(const std::string& target){
 	}
 }
 
-// bool	FragTrap::checkStatus(){
-
-// 	std::string	typetab[3] = {"ClapTrap ", "FragTrap ", "FragTrap "};
-// 	std::string	deathMsgTab[3] = {" He was useless anyway", " Please dont repair him !", " Not a big lost"};
-
-// 	if (this->hp <= 0)
-// 	{
-// 		std::cout	<< typetab[this->type] << this->name
-// 					<< this->showStatus()
-// 					<< " is dead."
-// 					<< deathMsgTab[this->type]
-// 					<< std::endl;
-// 		return (0);
-// 	}
-// 	else if (!this->ep)
-// 	{
-// 		std::cout	<< typetab[this->type] << this->name
-// 					<< this->showStatus()
-// 					<< " is too tired to do this action" << std::endl;
-// 		return (0);
-// 	}
-// 	return (1);
-// }
-
 void FragTrap::highFivesGuys(void){
+
 	std::string usrInput;
 
 	std::cout << this->name << " is asking for a highfive (Y / N) ";
-
 	getline(std::cin, usrInput);
 	if (usrInput == "Y")
-		std::cout << "you've made " << this->name << " the happiest FragTrap in the world" << std::endl;
+		std::cout	<< "you've made " << this->name
+					<< " the happiest FragTrap in the world" << std::endl;
 	else {
-		std::cout << "you've made " << this->name << " so sad he doesnt wanna live anymore" << std::endl;
+		std::cout	<< "you've made " << this->name
+					<< " so sad he doesnt wanna live anymore" << std::endl;
 		while (this->hp > 0) {
 			this->attack(this->name);
 			this->takeDamage(this->dps);

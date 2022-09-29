@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:25:30 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 21:28:37 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:51:37 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ enum {
 	CLAPTRAP,
 	SCAVTRAP,
 	FRAGTRAP,
-	DIAMONDTRAP
+	DIAMONDTRAP,
 };
 
 class ClapTrap {
@@ -37,18 +37,21 @@ class ClapTrap {
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+		void	printStats();
 
+		ClapTrap();
 		ClapTrap(const std::string &name);
 		ClapTrap(const ClapTrap &src);
 		~ClapTrap();
 
-	ClapTrap& operator=	(const ClapTrap &otherOne);
+		ClapTrap& operator=	(const ClapTrap &cpy);
 
 	protected:
 
 		bool		checkStatus();
 		std::string	showStatus();
 		std::string	printType();
+
 
 		std::string	name;
 		int			hp;
@@ -57,6 +60,7 @@ class ClapTrap {
 		int			type;
 
 	private:
+
 };
 
 #endif
