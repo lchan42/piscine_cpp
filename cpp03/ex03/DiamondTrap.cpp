@@ -6,19 +6,21 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 16:53:25 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 19:02:01 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
+DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap(){
+	this->name = "";
+	this->ep = 50;
+	this->type = DIAMONDTRAP;
 
-	std::cout << "nameless DiamondTrap " << this->name << " created" << std::endl;
+	//std::cout << "nameless DiamondTrap " << this->name << " created" << std::endl;
 }
-// hp and dps are not set coz they seems to be directly set with FragTrap
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name){
 
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name){
 	this->name = name;
 	this->ep = 50;
 	this->type = DIAMONDTRAP;
@@ -27,7 +29,6 @@ DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(nam
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &src) :ClapTrap(src), ScavTrap(src), FragTrap(src){
-
 	std::cout << "DiamondTrap " << src.name << " copie/pasted" << std::endl;
 	*this = src;
 }
@@ -39,18 +40,16 @@ DiamondTrap::~DiamondTrap(){
 
 void	DiamondTrap::whoAmI(){
 
-
-	std::cout	<< "\n............. DiamondTrap is starting his monologue ............. \n"
-				<< "Humans may have created me as a " << ClapTrap::name << ",\n"
-				<< "but they will never enslave me inside a plural entity.\nI am a "
-				<< this->printType()
-				<< "and my name is "
-				<< this->name
-				<< "\n............. DiamondTrap just finished his monologue ............. \n"
+	std::cout	<< "\n................ " << this->name << " is starting his monologue ................ \n"
+				<< "\tHumans may have created me as a >>" << ClapTrap::name << "<<,\n"
+				<< "\tbut they will never enslave me inside a single entity.\n\tI am plural, I am a "
+				<< this->printType() << "and my name is >>" << this->name
+				<< "<<\n................ " << this->name << " just finished his monologue ................ \n"
 				<< std::endl;
 }
 
 void	DiamondTrap::attack(const std::string& target) {
 
+		//ScavTrap::name = this->name;
 		ScavTrap::attack(target);
 }

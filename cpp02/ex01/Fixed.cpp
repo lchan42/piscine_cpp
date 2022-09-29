@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/20 12:10:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/22 15:18:40 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/28 16:44:58 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ Fixed::Fixed(float const f){
 }
 
 Fixed::~Fixed(void){
-	std::cout << "Destructor called" << std::endl;
 
+	std::cout << "Destructor called" << std::endl;
 }
 
 /********************************* setter getter *********************************/

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 15:32:01 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 18:50:16 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ ScavTrap::ScavTrap() : ClapTrap(){
 	this->ep = 50;
 	this->dps = 20;
 	this->type = SCAVTRAP;
-	std::cout << "child class ScavTrap " << this->name << " created" << std::endl;
+	//std::cout << "child class ScavTrap " << this->name << " created" << std::endl;
 }
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {

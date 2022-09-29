@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:25:30 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 18:50:28 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:34:36 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ class ClapTrap {
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 
-
+		ClapTrap();
 		ClapTrap(const std::string &name);
 		ClapTrap(const ClapTrap &src);
 		~ClapTrap();
 
-	ClapTrap& operator=	(const ClapTrap &otherOne);
+		ClapTrap& operator=	(const ClapTrap &otherOne);
 
 	private:
 		std::string	name;

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 18:49:34 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:23:58 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /******************************************
  *	Constructor / destructor
  * ****************************************/
+
+ClapTrap::ClapTrap() : name(""){
+	std::cout << "ClapTrap " << this->name << " created" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0){
 
 	std::cout << "ClapTrap " << this->name << " created" << std::endl;
@@ -85,11 +90,11 @@ void	ClapTrap::beRepaired(unsigned int amount){
 
 bool	ClapTrap::checkStatus(){
 
-	if (!this->hp)
+	if (this->hp <= 0)
 	{
 		std::cout	<< "ClapTrap " << this->name
 					<< this->showStatus()
-					<< " is dead and dead robot can not attack" << std::endl;
+					<< " is dead please let him RIP" << std::endl;
 		return (0);
 	}
 	else if (!this->ep)

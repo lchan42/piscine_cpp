@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 18:26:19 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:52:07 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 /******************************************
  *	Constructor / destructor
  * ****************************************/
+
+ClapTrap::ClapTrap() : name(""){
+	std::cout << "ClapTrap " << this->name << " created" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0), type(CLAPTRAP){
 
 	std::cout << "ClapTrap " << this->name << " created" << std::endl;
@@ -28,15 +33,15 @@ ClapTrap::ClapTrap(const ClapTrap &src){
 
 ClapTrap::~ClapTrap(){
 
-	std::cout << "ClapTrap " << this->name << " destroyed :(" << std::endl;
+	std::cout << "ClapTrap " << this->name << " destroyed" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=	(const ClapTrap &otherOne){
+ClapTrap& ClapTrap::operator=	(const ClapTrap &cpy){
 
-	this->name = otherOne.name;
-	this->hp = otherOne.hp;
-	this->ep = otherOne.ep;
-	this->dps = otherOne.dps;
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
 	return (*this);
 }
 

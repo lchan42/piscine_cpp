@@ -6,17 +6,17 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:50 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 16:54:04 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 19:03:41 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 void	printAllClassStats(){
 
-	ClapTrap ClapTrap("ClapT");
-	ScavTrap ScavTrap("ScavT");
-	FragTrap FragTrap("FragT");
-	DiamondTrap DiamondTrap("DiamT");
+	ClapTrap	ClapTrap;
+	ScavTrap	ScavTrap;
+	FragTrap	FragTrap;
+	DiamondTrap	DiamondTrap;
 
 	ClapTrap.printStats();
 	ScavTrap.printStats();
@@ -27,11 +27,14 @@ void	printAllClassStats(){
 int	main( void ){
 
 	std::string enemyName = "Grosse Brutasse ";
-	DiamondTrap DiamondT("SmallD");
-	ClapTrap	ClapTrap("Clap");
+	DiamondTrap DiamondT("lit'D");
 
+	std::cout << "\n <<<<<<<<<<............>>>>>>>>>> showing stats <<<<<<<<<<............>>>>>>>>>>" << std::endl;
+	printAllClassStats();
+	std::cout << "\n <<<<<<<<<<............>>>>>>>>>> testing attack <<<<<<<<<<............>>>>>>>>>>" << std::endl;
 	DiamondT.attack(enemyName);
+	std::cout << "\n <<<<<<<<<<............>>>>>>>>>> testing whoAmI <<<<<<<<<<............>>>>>>>>>>" << std::endl;
 	DiamondT.whoAmI();
-	//printAllClassStats();
+	std::cout << "\n <<<<<<<<<<............>>>>>>>>>> testing whoAmI <<<<<<<<<<............>>>>>>>>>>" << std::endl;
 	return (0);
 }

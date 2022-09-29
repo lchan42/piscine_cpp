@@ -6,13 +6,23 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 18:32:11 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:32:01 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name){
+ScavTrap::ScavTrap() : ClapTrap(){
+
+	this->name = "";
+	this->hp = 100;
+	this->ep = 50;
+	this->dps = 20;
+	this->type = SCAVTRAP;
+	std::cout << "child class ScavTrap " << this->name << " created" << std::endl;
+}
+
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name) {
 
 	this->name = name;
 	this->hp = 100;
@@ -33,38 +43,27 @@ ScavTrap::~ScavTrap(){
 	std::cout << "ScavTrap " << this->name << " destroyed :(" << std::endl;
 }
 
-ScavTrap& ScavTrap::operator=	(const ScavTrap &otherOne){
+ScavTrap& ScavTrap::operator=	(const ScavTrap &cpy){
 
-	this->name = otherOne.name;
-	this->hp = otherOne.hp;
-	this->ep = otherOne.ep;
-	this->dps = otherOne.dps;
-	this->type = otherOne.type;
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
+	this->type = cpy.type;
 	return (*this);
 }
 
-bool	ScavTrap::checkStatus(){
+void	ScavTrap::attack(const std::string& target){
 
-	std::string	typetab[3] = {"ClapTrap ", "ScavTrap ", "FragTrap "};
-	std::string	deathMsgTab[3] = {" He was useless anyway", " Please dont repair him !", " Not a big lost"};
-
-	if (this->hp <= 0)
+	if (this->checkStatus() == OK)
 	{
-		std::cout	<< typetab[this->type] << this->name
+		std::cout	<< this->printType() << this->name
 					<< this->showStatus()
-					<< " is dead."
-					<< deathMsgTab[this->type]
-					<< std::endl;
-		return (0);
+					<< " is attacking " << target
+					<< ", in the most ScavTrapest way causing " << this->dps
+					<< " points of damage!" << std::endl;
+		this->ep--;
 	}
-	else if (!this->ep)
-	{
-		std::cout	<< typetab[this->type] << this->name
-					<< this->showStatus()
-					<< " is too tired to do this action" << std::endl;
-		return (0);
-	}
-	return (1);
 }
 
 void	ScavTrap::guardGate( void ){

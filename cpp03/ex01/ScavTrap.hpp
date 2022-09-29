@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   SvapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 19:12:01 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 19:10:24 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,21 @@
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-class ScavTrap : public ClapTrap{
+class ScavTrap : public ClapTrap {
 
+	public:
+		ScavTrap();
 		ScavTrap(const std::string &name);
-		ScavTrap(const ClapTrap &src);
+		ScavTrap(const ScavTrap &src);
 		~ScavTrap();
 
-		ScavTrap& operator=	(const ScavTrap &otherOne);
+		void	guardGate( void );
+		void	attack(const std::string& target);
 
-		private:
-			std::string	name;
-			int			hp;
-			int			ep;
-			int			dps;
-			int			type;
+		ScavTrap& operator=	(const ScavTrap &cpy);
+
+	private:
+		//bool	checkStatus(void);
+
 };
 #endif

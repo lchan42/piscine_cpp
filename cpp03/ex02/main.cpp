@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:50 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 18:26:43 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:39:33 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "ScavTrap.hpp"
 
 int	fromStringToInt(std::string usrInput){
+
 	std::stringstream	stream;
 	int					i;
-
 
 	stream << usrInput;
 	stream >> i;
@@ -24,8 +24,10 @@ int	fromStringToInt(std::string usrInput){
 }
 
 std::string	fromIntToString(int i){
+
 	std::stringstream	stream;
 	std:: string		ret;
+
 	stream << i;
 	stream >> ret;
 	return (ret);
@@ -68,8 +70,10 @@ void	checkFragMethod(std::string enemyName){
 		FragTrap Frag2("FragPheonix");
 		for (int i = 0; i < 5; i++){
 			Frag2.takeDamage(33);
-			Frag2.beRepaired(20);
+		 	Frag2.beRepaired(20);
 		}
+		std::cout << "....... checking FragTrap = operator ......." << std::endl;
+		FragTrap Frag3 = Frag2;
 	}
 }
 
@@ -79,7 +83,6 @@ void	checkFragSpe(){
 
 	std::cout << "....... checking highFivesGuys function ......." << std::endl;
 	std::cout << "do you wanna test Happy Frag Special Method ? (Y / N) ";
-
 	getline(std::cin, usrInput);
 	if (usrInput == "Y")
 	{
@@ -87,7 +90,7 @@ void	checkFragSpe(){
 		getline(std::cin, usrInput);
 		if (usrInput == "Y")
 		{
-			FragTrap Frag2("Happy Frag");
+			FragTrap Frag2("HappyFrag");
 			Frag2.highFivesGuys();
 		}
 	}
@@ -111,9 +114,9 @@ int	main( void ){
 
 	std::cout << ">>>>>>>>>>>>>> checking constructor / destructor order <<<<<<<<<<<<<< " << std::endl;
 	orderTest();
-
 	std::cout << ">>>>>>>>>>>>>> checking function inheritance <<<<<<<<<<<<<< " << std::endl;
 	checkFragMethod(enemyName);
+	std::cout << ">>>>>>>>>>>>>> checking special function <<<<<<<<<<<<<< " << std::endl;
 	checkFragSpe();
 	//checkMotherClass(enemyName);
 	return (0);

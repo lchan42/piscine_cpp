@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 15:38:18 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 18:50:08 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ FragTrap::FragTrap() : ClapTrap(){
 	this->ep = 100;
 	this->dps = 30;
 	this->type = FRAGTRAP;
-	std::cout << "child class FragTrap " << this->name << " created" << std::endl;
+	//std::cout << "child class FragTrap " << this->name << " created" << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name){

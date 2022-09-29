@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/28 18:30:30 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:36:37 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class FragTrap : public ClapTrap {
 
 	public:
+		FragTrap();
 		FragTrap(const std::string &name);
 		FragTrap(const FragTrap &src);
 		~FragTrap();
@@ -25,10 +26,9 @@ class FragTrap : public ClapTrap {
 		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 
-		FragTrap& operator=	(const FragTrap &otherOne);
+		FragTrap& operator=	(const FragTrap &cpy);
 
 	private:
-		//bool	checkStatus(void);
 
 };
 #endif

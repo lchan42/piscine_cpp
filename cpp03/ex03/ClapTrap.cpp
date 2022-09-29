@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 16:20:07 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 18:57:54 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
  *	Constructor / destructor
  * ****************************************/
 
-ClapTrap::ClapTrap() : name(""){
-	std::cout << "ClapTrap " << this->name << " created" << std::endl;
+ClapTrap::ClapTrap() : name(""), hp(10), ep(10), dps(0), type(CLAPTRAP){
+	//std::cout << "ClapTrap " << this->name << " created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0), type(CLAPTRAP){
@@ -134,10 +134,9 @@ std::string	ClapTrap::printType(){
 
 void	ClapTrap::printStats(){
 
-	std::cout	<< "type: " << printType() << std::endl;
-	std::cout	<< "hp: " << this->hp << " "
+	std::cout	<< "type: " << printType() << std::setw(10)
+				<< "-->" << "hp: " << this->hp << " "
 				<< "ep: " << this->ep << " "
-				<< "dps: " << this->dps << " "
-
+				<< "dps: " << this->dps << "\n"
 				<< std::endl;
 }

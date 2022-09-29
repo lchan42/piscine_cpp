@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:29:40 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/23 19:06:16 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 15:27:10 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 /******************************************
  *	Constructor / destructor
  * ****************************************/
+
+ClapTrap::ClapTrap() : name(""){
+
+	std::cout << "ClapTrap " << this->name << " created" << std::endl;
+}
+
 ClapTrap::ClapTrap(const std::string &name) : name(name), hp(10), ep(10), dps(0), type(CLAPTRAP){
 
 	std::cout << "ClapTrap " << this->name << " created" << std::endl;
@@ -28,15 +34,15 @@ ClapTrap::ClapTrap(const ClapTrap &src){
 
 ClapTrap::~ClapTrap(){
 
-	std::cout << "ClapTrap " << this->name << " destroyed :(" << std::endl;
+	std::cout << "ClapTrap " << this->name << " destroyed" << std::endl;
 }
 
-ClapTrap& ClapTrap::operator=	(const ClapTrap &otherOne){
+ClapTrap& ClapTrap::operator=	(const ClapTrap &cpy){
 
-	this->name = otherOne.name;
-	this->hp = otherOne.hp;
-	this->ep = otherOne.ep;
-	this->dps = otherOne.dps;
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
 	return (*this);
 }
 
@@ -47,7 +53,7 @@ void	ClapTrap::attack(const std::string& target){
 
 	if (this->checkStatus() == OK)
 	{
-		std::cout	<< "ClapTrap " << this->name
+		std::cout	<< this->printType() << this->name
 					<< this->showStatus()
 					<< " attacks " << target
 					<< ", causing " << this->dps
@@ -60,7 +66,7 @@ void	ClapTrap::takeDamage(unsigned int amount){
 
 	if (this->checkStatus() == OK)
 	{
-		std::cout	<< "ClapTrap " << this->name
+		std::cout	<< this->printType() << this->name
 					<< this->showStatus()
 					<< " takes " << amount
 					<< " points of damage!" << std::endl;
@@ -73,7 +79,7 @@ void	ClapTrap::beRepaired(unsigned int amount){
 
 	if (this->checkStatus() == OK)
 	{
-		std::cout	<< "ClapTrap " << this->name
+		std::cout	<< this->printType() << this->name
 					<< this->showStatus()
 					<< " regains " << amount
 					<< " hp!" << std::endl;
@@ -83,15 +89,22 @@ void	ClapTrap::beRepaired(unsigned int amount){
 	}
 }
 
+/******************************************
+ *	protected function
+ * ****************************************/
+
 bool	ClapTrap::checkStatus(){
 
 	std::string	typetab[3] = {"ClapTrap ", "ScavTrap ", "FragTrap "};
+	std::string	deathMsgTab[3] = {" He was useless anyway", " Please dont repair him !", " Not a big lost"};
 
-	if (!this->hp)
+	if (this->hp <= 0)
 	{
 		std::cout	<< typetab[this->type] << this->name
 					<< this->showStatus()
-					<< " is dead and dead robot can not attack" << std::endl;
+					<< " is dead."
+					<< deathMsgTab[this->type]
+					<< std::endl;
 		return (0);
 	}
 	else if (!this->ep)
@@ -114,4 +127,11 @@ std::string	ClapTrap::showStatus(){
 			<< std::endl;
 	std::getline(stream, ret);
 	return (ret);
+}
+
+std::string	ClapTrap::printType(){
+
+	std::string			typetab[3] = {"ClapTrap ", "ScavTrap ", "FragTrap "};
+
+	return (typetab[this->type]);
 }
