@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 16:05:27 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 16:53:25 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@ DiamondTrap::DiamondTrap() : ClapTrap(), ScavTrap(), FragTrap() {
 
 	std::cout << "nameless DiamondTrap " << this->name << " created" << std::endl;
 }
-
+// hp and dps are not set coz they seems to be directly set with FragTrap
 DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name), ScavTrap(name), FragTrap(name){
 
 	this->name = name;
-	this->hp = FragTrap::hp;
-	this->ep = ScavTrap::ep;
-	this->dps = FragTrap::dps;
+	this->ep = 50;
 	this->type = DIAMONDTRAP;
 	ClapTrap::name = name + "_clap_name";
 	std::cout << "child class DiamondTrap " << this->name << " created" << std::endl;

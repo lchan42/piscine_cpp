@@ -6,32 +6,11 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 16:24:50 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 12:03:18 by lchan            ###   ########.fr       */
+/*   Updated: 2022/09/29 16:54:04 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-
-int	fromStringToInt(std::string usrInput){
-
-	std::stringstream	stream;
-	int					i;
-
-	stream << usrInput;
-	stream >> i;
-	return (i);
-}
-
-std::string	fromIntToString(int i){
-
-	std::stringstream	stream;
-	std:: string		ret;
-
-	stream << i;
-	stream >> ret;
-	return (ret);
-}
-
 void	printAllClassStats(){
 
 	ClapTrap ClapTrap("ClapT");
@@ -53,6 +32,6 @@ int	main( void ){
 
 	DiamondT.attack(enemyName);
 	DiamondT.whoAmI();
-	printAllClassStats();
+	//printAllClassStats();
 	return (0);
 }
