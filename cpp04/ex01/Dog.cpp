@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:00:53 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 19:13:24 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:17:15 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*************************************
  *		Constructor/Destructor
  * ***********************************/
-Dog::Dog() : brain(new Brain)
+Dog::Dog() : Animal("Dog"), brain(new Brain)
 {
-	Animal::setType("Dog");
+	//Animal::setType("Dog");
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
@@ -34,16 +34,21 @@ Dog::~Dog()
 }
 
 /*************************************
+ *				getter/setter
+ * ***********************************/
+Brain*	Dog::getBrain(){
+	return (this->brain);
+}
+
+/*************************************
  *				Overloads
  * ***********************************/
 Dog&	Dog::operator=(const Dog &rhs){
-
+	std::cout << "Dog operator called" << std::endl;
 	this->type = rhs.type;
-	//do I need to call brain destructor ?
+	this->brain = rhs.brain;						//calling Brain & operator overload
+	//(Brain)(*(this->brain)) = (Brain)(*(rhs.brain));
 
-	(Brain)(*(this->brain)) = (Brain)(*(rhs.brain));
-	
-	// *(this->brain) = *(rhs.brain);
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:02:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 19:09:05 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:17:09 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 /*************************************
  *		Constructor/Destructor
  * ***********************************/
-Cat::Cat() : brain(new Brain)
+Cat::Cat() :  Animal("Cat"), brain(new Brain)
 {
-	Animal::setType("Cat");
+	//Animal::setType("Cat");
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -37,9 +37,10 @@ Cat::~Cat()
  *				Overloads
  * ***********************************/
 Cat&	Cat::operator=(const Cat &rhs){
-
+	std::cout << "Cat operator called" << std::endl;
 	this->type = rhs.type;
-	(Brain)(*(this->brain)) = (Brain)(*(rhs.brain));
+	this->brain = rhs.brain;
+	//(Brain)(*(this->brain)) = (Brain)(*(rhs.brain));
 	return (*this);
 }
 

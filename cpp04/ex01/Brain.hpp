@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:38:11 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 18:50:57 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:19:13 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,16 @@ class Brain {
 		~Brain();
 
 		Brain&	operator=(const Brain &rhs);
+
+		void				setIdeas(std::string idea);
+		const Brain*		getAddress( void );
+		void				getAllIdeas( void );
+		const std::string	getIdea(int i);
+
 	protected:
 
 	private:
+		int			index;
 		std::string ideas[MAX_IDEA];
 };
 

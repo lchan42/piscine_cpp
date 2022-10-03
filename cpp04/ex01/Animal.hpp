@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:23:14 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 18:52:57 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:28:35 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Animal{
 	public:
 
 		Animal();
+		Animal(std::string type);
 		Animal(const Animal& cpy);
 		virtual ~Animal();
 
@@ -29,7 +30,7 @@ class Animal{
 
 		virtual void	makeSound();
 
-		Animal&	operator=(const Animal &rhs);
+		virtual Animal&	operator=(const Animal &rhs);
 
 	protected:
 

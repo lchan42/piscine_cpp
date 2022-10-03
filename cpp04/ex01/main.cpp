@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:42:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 19:22:11 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:32:14 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,28 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include <new>
+# define TABSIZE 100
+
+void	deleteAnimalArray(Animal** tab, int arraySize){
+	for(int i = 0; i < arraySize; i++)
+		delete tab[i];
+}
+
+void	testAnimalTab(){
+	Animal	*tab[TABSIZE];
+	int		halfSize = TABSIZE / 2;
+
+	std::cout << " \n>>>>>>>>>>> testing Animal tab[100] <<<<<<<<<<<<" << std::endl;
+
+	for (int i = 0; i < halfSize; i++)
+	{
+		std::cout << i << std::endl;
+		tab[i] = new Dog;
+		tab[i + halfSize] = new Cat;
+
+	}
+	deleteAnimalArray(tab, TABSIZE);
+}
 
 int	main( void ){
 
@@ -43,12 +65,18 @@ int	main( void ){
 
 
 	Animal*	d6 = new Dog();
-	Animal*	c6 = new Cat();
-	//std::cout << d6 << c6 << std::endl;
-		*d6 = *c6;
+	Animal*	d7 = new Dog();
+	Dog d8;
+
+
+	//std::cout << " address d6 = " << (*d6).getBrain() << "address c6 =" << c6 << std::endl;
+	//	*d6 = *d7;
+	//d6->Brain::getAddress() ;
+	std::cout << "address d6 brain = " <<((Dog*)d6)->getBrain() << "\naddress d6 brain = " << ((Dog*)d6)->getBrain()->getAddress()<< std::endl;
 
 	delete d6;
-	delete c6;
+	delete d7;
+	//testAnimalTab();
 	std::cout << " \n>>>>>>>>>>> destructor called <<<<<<<<<<<<" << std::endl;
 
 }

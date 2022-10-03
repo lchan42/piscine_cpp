@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:54:58 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/01 19:02:39 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:16:55 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal {
 
 		virtual void	makeSound();
 
-		Cat&	operator=(const Cat &rhs);
+		virtual Cat&	operator=(const Cat &rhs);
 	protected:
 
 	private:
