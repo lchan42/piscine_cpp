@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 19:02:01 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:12:55 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@ DiamondTrap::~DiamondTrap(){
 
 	std::cout << "DiamondTrap " << this->name << " destroyed" << std::endl;
 }
+
+DiamondTrap&	DiamondTrap::operator=(const DiamondTrap& cpy){
+
+	this->name = cpy.name;
+	this->hp = cpy.hp;
+	this->ep = cpy.ep;
+	this->dps = cpy.dps;
+	this->type = cpy.type;
+	return (*this);
+}
+
 
 void	DiamondTrap::whoAmI(){
 

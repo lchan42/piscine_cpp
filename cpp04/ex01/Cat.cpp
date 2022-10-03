@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 16:02:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 14:17:09 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:21:45 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,25 @@ Cat::~Cat()
 }
 
 /*************************************
+ *				getter/setter
+ * ***********************************/
+Brain*	Cat::getBrain()
+{
+	return (this->brain);
+}
+
+/*************************************
  *				Overloads
  * ***********************************/
-Cat&	Cat::operator=(const Cat &rhs){
-	std::cout << "Cat operator called" << std::endl;
+Cat&	Cat::operator=(const Cat &rhs)
+{
+	std::cout << "Cat operator= called" << std::endl;
 	this->type = rhs.type;
-	this->brain = rhs.brain;
-	//(Brain)(*(this->brain)) = (Brain)(*(rhs.brain));
+	*(this->brain) = *(rhs.brain);
 	return (*this);
 }
 
-void	Cat::makeSound(){
-
+void	Cat::makeSound()
+{
 	std::cout << "Miaou miaou miaou miaou !!" << std::endl;
 }

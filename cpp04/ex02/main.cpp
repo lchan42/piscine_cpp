@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:42:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:34:20 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 17:05:43 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,13 @@ void	testAnimalTab()
 		((Dog*)(tab[i + halfSize]))->getBrain()->setIdeas("I 'm just a cat");
 	}
 	((Dog*)(tab[0]))->getBrain()->getAllIdeas();
+	tab[0]->makeSound();
+	((Dog*)(tab[0]))->getBrain()->setIdeas("If only I could eat a the table .... ");
+	*((Dog*)tab[1]) = *((Dog*)tab[0]);
+	//std::cout << "oups segfault" << std::endl;
+	((Dog*)(tab[1]))->getBrain()->getAllIdeas();
 	((Cat*)(tab[50]))->getBrain()->getAllIdeas();
+	tab[50]->makeSound();
 
 	deleteAnimalArray(tab, TABSIZE);
 }

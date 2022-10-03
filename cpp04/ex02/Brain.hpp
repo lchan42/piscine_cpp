@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 15:54:58 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:19:34 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/01 18:38:11 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/03 14:19:13 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Cat : public Animal {
+#define MAX_IDEA 100
+
+class Brain {
 	public:
-		Cat();
-		Cat(const Cat &cpy);
-		virtual ~Cat();
+		Brain();
+		Brain(const Brain &cpy);
+		~Brain();
 
-		virtual void	makeSound();
-		Brain *			getBrain();
+		Brain&	operator=(const Brain &rhs);
 
-		virtual Cat&	operator=(const Cat &rhs);
+		void				setIdeas(std::string idea);
+		const Brain*		getAddress( void );
+		void				getAllIdeas( void );
+		const std::string	getIdea(int i);
+
 	protected:
 
 	private:
-		Brain* brain;
+		int			index;
+		std::string ideas[MAX_IDEA];
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 19:08:25 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/29 19:17:18 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 14:12:23 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 		DiamondTrap(const DiamondTrap &src);
 		~DiamondTrap();
 
+		DiamondTrap& operator=(const DiamondTrap& cpy);
+
 		void	attack(const std::string& target);
 		void	whoAmI( void );
+
 
 	private:
 		std::string	name;

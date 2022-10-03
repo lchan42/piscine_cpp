@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:31:10 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:08:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/01 16:13:06 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,6 @@
 Animal::Animal() : type("animal")
 {
 	std::cout << "Animal constructor called" << std::endl;
-}
-
-Animal::Animal(std::string type) : type(type){
-
-	std::cout << "Animal param constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &cpy) : type("animal")
@@ -44,7 +39,6 @@ Animal::~Animal()
 
 Animal&	Animal::operator=(const Animal &rhs)
 {
-	std::cout << "Animal operator called" << std::endl;
 	this->type = rhs.type;
 	return (*this);
 }

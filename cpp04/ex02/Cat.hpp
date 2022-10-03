@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:54:58 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:19:34 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 16:56:58 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal{
+
 	public:
 		Cat();
 		Cat(const Cat &cpy);
@@ -24,7 +25,7 @@ class Cat : public Animal {
 		virtual void	makeSound();
 		Brain *			getBrain();
 
-		virtual Cat&	operator=(const Cat &rhs);
+		Cat&	operator=(const Cat &rhs);
 	protected:
 
 	private:

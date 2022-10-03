@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:00:53 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:08:59 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 20:45:50 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Brain*	Dog::getBrain()
 Dog&	Dog::operator=(const Dog &rhs)
 {
 	std::cout << "Dog operator= called" << std::endl;
-	this->type = rhs.type;
+	Animal::operator=(rhs);
 	*(this->brain) = *(rhs.brain);
 	return (*this);
 }

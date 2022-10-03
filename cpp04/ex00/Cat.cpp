@@ -1,58 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 18:00:53 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:08:59 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/01 16:02:26 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/01 18:14:37 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /*************************************
  *		Constructor/Destructor
  * ***********************************/
-Dog::Dog() : Animal("Dog"), brain(new Brain)
+Cat::Cat()
 {
-	//Animal::setType("Dog");
-	std::cout << "Dog default constructor called" << std::endl;
+	Animal::setType("Cat");
+	std::cout << "Cat default constructor called" << std::endl;
 }
 
-Dog::Dog(const Dog& cpy)
+Cat::Cat(const Cat& cpy)
 {
 	*this = cpy;
-	std::cout << "Dog cpy constructor called" << std::endl;
+	std::cout << "Cat cpy constructor called" << std::endl;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
-	delete this->brain;
-	std::cout << "Dog destructor called" << std::endl;
-}
-
-/*************************************
- *				getter/setter
- * ***********************************/
-Brain*	Dog::getBrain()
-{
-	return (this->brain);
+	std::cout << "Cat destructor called" << std::endl;
 }
 
 /*************************************
  *				Overloads
  * ***********************************/
-Dog&	Dog::operator=(const Dog &rhs)
-{
-	std::cout << "Dog operator= called" << std::endl;
+Cat&	Cat::operator=(const Cat &rhs){
+
 	this->type = rhs.type;
-	*(this->brain) = *(rhs.brain);
 	return (*this);
 }
 
-void	Dog::makeSound()
-{
-	std::cout << "Woaf Woaf Woaf Woaf !!" << std::endl;
+void	Cat::makeSound(){
+
+	std::cout << "Miaou miaou miaou miaou !!" << std::endl;
 }

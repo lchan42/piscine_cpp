@@ -6,9 +6,11 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:54:58 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:19:34 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/01 18:37:24 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #ifndef CAT_HPP
 # define CAT_HPP
@@ -22,13 +24,11 @@ class Cat : public Animal {
 		virtual ~Cat();
 
 		virtual void	makeSound();
-		Brain *			getBrain();
 
-		virtual Cat&	operator=(const Cat &rhs);
+		Cat&	operator=(const Cat &rhs);
 	protected:
 
 	private:
-		Brain* brain;
 };
 
 #endif

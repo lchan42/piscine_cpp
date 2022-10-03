@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:01:35 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 14:17:21 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/03 17:15:27 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ class Dog : public Animal {
 	public:
 		Dog();
 		Dog(const Dog &cpy);
-		~Dog();
+		virtual	~Dog();
 
 		virtual void	makeSound();
-
-		Brain *getBrain();
+		Brain 			*getBrain();
 
 		virtual Dog&	operator=(const Dog &rhs);
 	protected:

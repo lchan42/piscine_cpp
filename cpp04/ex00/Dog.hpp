@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 15:54:58 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:19:34 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/01 18:01:35 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/01 18:20:38 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 #include "Animal.hpp"
 
-class Cat : public Animal {
+class Dog : public Animal {
+	
 	public:
-		Cat();
-		Cat(const Cat &cpy);
-		virtual ~Cat();
+		Dog();
+		Dog(const Dog &cpy);
+		~Dog();
 
 		virtual void	makeSound();
-		Brain *			getBrain();
 
-		virtual Cat&	operator=(const Cat &rhs);
+		Dog&	operator=(const Dog &rhs);
 	protected:
 
 	private:
-		Brain* brain;
 };
 
 #endif
