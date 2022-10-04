@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character() : inventory(new AMateria*[INVENTORY_SIZE]) {
+Character::Character() {
 
 	std::cout << "Character default constructor called" << std::endl;
 }
@@ -16,10 +16,14 @@ Character::~Character(){
 
 Character&	Character::operator=(const Character& rhs){
 
-	for(int i = 0; i < INVENTORY_SIZE; i++)
-		unequip(i);
-	for(int i = 0; i < INVENTORY_SIZE; i++)
-		this->inventory[i] = rhs.inventory[i];
+		this->inventory = rhs.inventory;
 	return (*this);
 }
 
+std::string const &	Character::getName() const{
+	return (this->_name);
+}
+
+void 				Character::equip(AMateria* m){}
+void 				Character::unequip(int idx){}
+void 				Character::use(int idx, ICharacter& target){}

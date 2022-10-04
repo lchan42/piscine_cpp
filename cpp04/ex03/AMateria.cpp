@@ -1,20 +1,21 @@
 #include "AMateria.hpp"
 
+
 /******************************
  *		Coplien Form
  * ****************************/
 
-AMateria::AMateria(){
+AMateria::AMateria() : type(""), intType(NOTYPE){
 
 	std::cout << "AMateria default constructor called" << std::endl;
 }
 
-AMateria::AMateria(std::string const & type) : type(type){
+AMateria::AMateria(std::string const & type) : type(type), intType(NOTYPE){
 
-	for (int i = 0; i < LIMITEUR; i++)
-		if ()
-	if (type == "Ice")
-		this->intType = ICE;
+	std::string	knownType[MAXTYPE] = {"Ice", "Cure", "Fire"};
+	for (int i = 0; i < MAXTYPE; i++)
+		if (type == knownType[i])
+			this->intType = i;
 	std::cout << "AMateria param constructor called" << std::endl;
 }
 
@@ -37,7 +38,21 @@ std::string const &	AMateria::getType() const{
 
 void 	AMateria::use(ICharacter& target){
 
-	if (this->type == "Ice")
-	if (this->type == "Ice")
+	(void) target;
+	switch (this->intType)
+	{
+	case ICE:
+		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+		break;
+	case CURE:
+		std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+		break;
+	case FIRE:
+		std::cout << "* shoots an fire bolt at " << target.getName() << " *" << std::endl;
+		break;
+	default:
+		std::cout << "unknown type does nothing	" << std::endl;
+		break;
+	}
 
 }

@@ -3,6 +3,7 @@
 
 #include "IMateriaSource.hpp"
 #include "Macro.hpp"
+#include "Inventory.hpp"
 //# define STOCK_SIZE 4
 
 class MateriaSource : public IMateriaSource {
@@ -17,10 +18,12 @@ class MateriaSource : public IMateriaSource {
 		virtual AMateria* createMateria(std::string const & type);
 
 		private:
-			int			index;
-			AMateria	*_stock[STOCK_SIZE];
-			void		cleanStock();
-			bool		checkInStock(std::string const & type);
+
+		Inventory		inventory;
+		//	int			index;
+		//	AMateria	*_stock[STOCK_SIZE];
+		//	void		cleanStock();
+		//	bool		checkInStock(std::string const & type);
 
 };
 

@@ -6,10 +6,11 @@
 #include "ICharacter.hpp"
 
 enum {
+	NOTYPE = -1,
 	ICE,
 	CURE,
 	FIRE,
-	LIMITEUR
+	MAXTYPE
 };
 
 
@@ -31,11 +32,9 @@ class AMateria {
 	virtual void 		use(ICharacter& target);
 
 	private:
-		std::string		type;
-		int				intType;
-		std::string		MateriaTab[LIMITEUR];
+		std::string				type;
+		int						intType;
+		// static std::string		KnownType[3];
 };
-
-
 
 #endif
