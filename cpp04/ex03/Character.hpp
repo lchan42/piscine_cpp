@@ -3,6 +3,8 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
+# define INVENTORY_SIZE 4
+
 
 class Character : public ICharacter {
 
@@ -17,6 +19,11 @@ class Character : public ICharacter {
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
 		virtual void use(int idx, ICharacter& target);
+
+	private:
+		AMateria		**inventory;
 };
 
 #endif
+
+

@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Macro.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 17:18:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/04 17:45:46 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/04 18:07:49 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/04 18:09:59 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
+#ifndef MACRO_HPP
+# define MACRO_HPP
 
-int	main( void ){
+# define STOCK_SIZE 4 // MateriaSource.hpp
+# define INVENTORY_SIZE 4 //Character.hpp
 
-	IMateriaSource* src = new MateriaSource();
-
-	src->learnMateria(new Ice());
-	//src->learnMateria(new Cure());
-}
+#endif

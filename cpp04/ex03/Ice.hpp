@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 17:18:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/04 17:45:46 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/04 17:19:08 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/04 19:26:57 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ICE_HPP
+# define ICE_HPP
+
 #include "AMateria.hpp"
-#include "MateriaSource.hpp"
-#include "Ice.hpp"
 
-int	main( void ){
+class Ice : public AMateria {
 
-	IMateriaSource* src = new MateriaSource();
+	public :
+		Ice();
+		Ice(Ice &cpy);
+		virtual ~Ice();
 
-	src->learnMateria(new Ice());
-	//src->learnMateria(new Cure());
-}
+		Ice&	operator=(const Ice& rhs);
+
+		virtual AMateria*	clone() const;
+};
+
+
+#endif
