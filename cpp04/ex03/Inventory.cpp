@@ -6,14 +6,12 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:42:43 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 15:03:04 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 17:52:26 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inventory.hpp"
 #include <string.h>
-
-
 
 /*************************************
  *		Constructor/Destructor
@@ -105,8 +103,8 @@ void	Inventory::showAllStock( void )
 
 bool	Inventory::checkInStock(std::string const &type){
 	for (int i = 0; i < this->maxStock; i++)
-		if (this->materia[i]->getType() == type)
-			return (1);
+		if (this->materia[i] && this->materia[i]->getType() == type)
+				return (1);
 	return (0);
 }
 
@@ -123,17 +121,3 @@ void	Inventory::memSetNull(){
 	for (int i = 0; i < maxStock; i++)
 		this->materia[i] = NULL;
 }
-
-
-// const Inventory* Inventory::getAddress( void )
-// {
-// 	return (this);
-// }
-
-// const std::string	Inventory::getIdea(int i)
-// {
-// 	if (i < MAX_STOCK)
-// 		return (materia[i]);
-// 	else
-// 		return ("");
-// }

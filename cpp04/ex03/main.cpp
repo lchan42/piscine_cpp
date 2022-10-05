@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:18:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 15:56:50 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 18:01:46 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
-
+#include "Fire.hpp"
+#include "Cure.hpp"
 
 void	checkMateriaSource()
 {
@@ -24,18 +25,19 @@ void	checkMateriaSource()
 	AMateria*		save;
 
 	src->getInventory().showAllStock();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Ice());
-	src->learnMateria(new Ice());
 
+	src->learnMateria(new Ice());
+	src->learnMateria(new Fire());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Ice());
 	src->getInventory().showAllStock();
+
 	save = src->getInventory().getMateria(2);
 	src->getInventory().removeMateria(2);
 	src->getInventory().showAllStock();
+
 	src->learnMateria(new Ice());
 	src->getInventory().showAllStock();
-	//src->learnMateria(new Cure());
 
 	std::cout << "........... calling destructors ..........." << std::endl;
 	delete src;
@@ -46,30 +48,84 @@ void	checkCaracters(){
 
 	std::cout << "\n>>>>>>>>>> checkCaracters test <<<<<<<<<<\n" << std::endl;
 
-	AMateria*	ice = new Ice;
-	ICharacter*	Cloud = new Character("Cloud");
-	ICharacter*	Genova = new Character("Genova");
-	AMateria*	newIce = ice->clone();
+	IMateriaSource	*src = new MateriaSource();
+	AMateria		*teamIce = new Ice;
+	AMateria		*teamCure = new Cure;
+	AMateria		*teamFire = new Fire;
+	ICharacter		*Cloud = new Character("Cloud");
+	ICharacter		*Barret = new Character("Barret");
+	ICharacter		*Aerith = new Character("Aerith");
+	ICharacter		*Genova = new Character("Genova");
+	AMateria		*newIce = teamIce->clone();
 
-	Cloud->equip(ice);
+	std::cout << "........... Genova's Actions ..........." << std::endl;
+
+	src->learnMateria(new Fire);
+	src->learnMateria(new Ice);
+	for(int i = 0; i < 2; i++)
+	{
+		Genova->equip(src->createMateria("fire"));
+		Genova->equip(src->createMateria("ice"));
+	}
+	for(int i = 0; i < 4; i++)
+	 	Genova->use(i, *Cloud);
+	Genova->use(2, *Barret);
+
+	std::cout << "........... Could's Actions ..........." << std::endl;
+	Cloud->equip(teamIce);
+	Cloud->equip(teamFire);
 	Cloud->equip(newIce);
-	Cloud->use(0, *Genova);
-	Cloud->use(1, *Genova);
-	Cloud->use(2, *Genova);
-	Cloud->use(3, *Genova);
+	for(int i = 0; i < 4; i++)
+		Cloud->use(i, *Genova);
+	for(int i = 0; i < 4; i++)
+		Cloud->unequip(i);
 
-	Cloud->unequip(1);
+	std::cout << "........... Barret's Actions ..........." << std::endl;
+	Barret->equip(teamIce);
+	Barret->equip(teamFire);
+	Barret->equip(newIce);
+	for(int i = 0; i < 4; i++)
+		Barret->use(i, *Genova);
+	Barret->unequip(2);	//--> we only removed newIce From Barret
+
+		std::cout << "........... Aerith's Actions ..........." << std::endl;
+	Aerith->equip(teamCure);
+	Aerith->use(0, *Cloud);
+	Aerith->use(0, *Barret);
+
 	std::cout << "........... calling destructors ..........." << std::endl;
 	delete Cloud;
 	delete Genova;
-	delete newIce;	//--> we unequiped newIce from Cloud, that' s why we have to delete it at the end;
+	delete Barret;
+	delete Aerith;
+	delete src;
+	delete newIce;	//--> we unequiped newIce from Barret, that' s why we have to delete manualy from the main;
+}
 
+void	CheckSubjectMain(){
+	std::cout << "\n>>>>>>>>>> CheckSubjectMain test <<<<<<<<<<\n" << std::endl;
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
 }
 
 int	main( void ){
 
-	//checkMateriaSource();
+	checkMateriaSource();
 	checkCaracters();
+	CheckSubjectMain();
 }
-
-//materia source should not access function remove materia/

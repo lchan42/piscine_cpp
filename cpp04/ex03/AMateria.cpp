@@ -4,7 +4,6 @@
 /******************************
  *		Coplien Form
  * ****************************/
-
 AMateria::AMateria() : type(""), intType(NOTYPE){
 
 	std::cout << "[AMateria] default constructor called" << std::endl;
@@ -12,7 +11,7 @@ AMateria::AMateria() : type(""), intType(NOTYPE){
 
 AMateria::AMateria(std::string const & type) : type(type), intType(NOTYPE){
 
-	std::string	knownType[MAXTYPE] = {"Ice", "Cure", "Fire"};
+	std::string	knownType[MAXTYPE] = {"ice", "cure", "fire"};
 	for (int i = 0; i < MAXTYPE; i++)
 		if (type == knownType[i])
 			this->intType = i;
@@ -32,6 +31,9 @@ AMateria&	AMateria::operator=(const AMateria& rhs){
 	return (*this);
 }
 
+/******************************
+ *		Member function
+ * ****************************/
 std::string const &	AMateria::getType() const{
 	return (this->type);
 }
@@ -53,5 +55,4 @@ void 	AMateria::use(ICharacter& target){
 		std::cout << "* unknown type does nothing *" << std::endl;
 		break;
 	}
-
 }

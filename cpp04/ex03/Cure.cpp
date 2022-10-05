@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:18:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 17:50:41 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 17:51:00 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Cure.hpp"
 
 /******************************
  *		Coplien Form
  * ****************************/
-Ice::Ice() : AMateria::AMateria("ice")
+Cure::Cure() : AMateria::AMateria("cure")
 {
-	std::cout << "[Ice] constructor called" << std::endl;
+	std::cout << "[Cure] constructor called" << std::endl;
 }
 
-Ice::Ice(Ice &cpy)
+Cure::Cure(Cure &cpy)
 {
 	*this = cpy;
-	std::cout << "[Ice] cpy constructor called" << std::endl;
+	std::cout << "[Cure] cpy constructor called" << std::endl;
+
 }
 
-Ice::~Ice()
+Cure::~Cure()
 {
-	std::cout << "[Ice] destructor called" << std::endl;
+	std::cout << "[Cure] destructor called" << std::endl;
 }
 
-Ice&	Ice::operator=(const Ice& rhs)
+Cure&	Cure::operator=(const Cure& rhs)
 {
 	AMateria::operator=(rhs);
 	return (*this);
@@ -40,9 +41,9 @@ Ice&	Ice::operator=(const Ice& rhs)
 /******************************
  *		inner Function
  * ****************************/
-AMateria*	Ice::clone() const
+AMateria*	Cure::clone() const
 {
-	AMateria* clone = new Ice;
+	AMateria* clone = new Cure;
 	*clone = *this;
 
 	return(clone);

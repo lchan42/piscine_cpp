@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*   Fire.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:18:23 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 17:50:41 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 16:31:42 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.hpp"
+#include "Fire.hpp"
 
 /******************************
  *		Coplien Form
  * ****************************/
-Ice::Ice() : AMateria::AMateria("ice")
+Fire::Fire() : AMateria::AMateria("fire")
 {
-	std::cout << "[Ice] constructor called" << std::endl;
+	std::cout << "[Fire] constructor called" << std::endl;
 }
 
-Ice::Ice(Ice &cpy)
+Fire::Fire(Fire &cpy)
 {
 	*this = cpy;
-	std::cout << "[Ice] cpy constructor called" << std::endl;
+	std::cout << "[Fire] cpy constructor called" << std::endl;
 }
 
-Ice::~Ice()
+Fire::~Fire()
 {
-	std::cout << "[Ice] destructor called" << std::endl;
+	std::cout << "[Fire] destructor called" << std::endl;
 }
 
-Ice&	Ice::operator=(const Ice& rhs)
+Fire&	Fire::operator=(const Fire& rhs)
 {
 	AMateria::operator=(rhs);
 	return (*this);
@@ -40,9 +40,9 @@ Ice&	Ice::operator=(const Ice& rhs)
 /******************************
  *		inner Function
  * ****************************/
-AMateria*	Ice::clone() const
+AMateria*	Fire::clone() const
 {
-	AMateria* clone = new Ice;
+	AMateria* clone = new Fire;
 	*clone = *this;
 
 	return(clone);

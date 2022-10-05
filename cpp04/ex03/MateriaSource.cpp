@@ -1,5 +1,7 @@
 #include "MateriaSource.hpp"
 #include "Ice.hpp"
+#include "Fire.hpp"
+#include "Cure.hpp"
 
 
 /******************************
@@ -31,7 +33,6 @@ MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs){
 /******************************
  *		Member function
  * ****************************/
-
 void MateriaSource::learnMateria(AMateria* m){
 
 	this->inventory.addMateria(m);
@@ -41,9 +42,12 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 
 	if (this->inventory.checkInStock(type))
 	{
-		if (type == "Ice")
+		if (type == "ice")
 			return (new Ice);
-		//return (new Cure);
+		else if (type == "cure")
+			return (new Cure);
+		else if (type == "fire")
+		return (new Fire);
 	}
 	return (NULL);
 }
@@ -51,10 +55,3 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 Inventory & MateriaSource::getInventory(){
 	return (this->inventory);
 }
-
-// void	MateriaSource::cleanStock(){
-// 		for (int i = 0; i < STOCK_SIZE; i++)
-// 			if (this->_stock[i])
-// 				delete this->_stock[i];
-// }
-

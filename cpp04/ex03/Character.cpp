@@ -1,5 +1,6 @@
 #include "Character.hpp"
 #include <iomanip>
+
 /******************************
  *		Coplien Form
  * ****************************/
@@ -49,11 +50,15 @@ void	Character::unequip(int idx)
 void	Character::use(int idx, ICharacter& target)
 {
 	AMateria* materiaInUse = this->inventory.getMateria(idx);
+	std::cout << std::setw(17) << "~" + this->_name + "~"<< std::endl;
 	if (materiaInUse)
 	{
-		std::cout << std::setw(17) << "~" + this->_name + "~"<< std::endl;
 		materiaInUse->use(target);
 	}
 	else
 		std::cerr << "use err: using idx " << idx << " does nothing" << std::endl;
+}
+
+Inventory & Character::getInventory(){
+	return (this->inventory);
 }
