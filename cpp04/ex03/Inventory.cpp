@@ -6,34 +6,41 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:42:43 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/04 21:07:07 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 15:03:04 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Inventory.hpp"
+#include <string.h>
+
+
 
 /*************************************
  *		Constructor/Destructor
  * ***********************************/
 Inventory::Inventory() : index(0), maxStock(DFT_STOCK), materia(new AMateria*[DFT_STOCK])
 {
-	//std::cout << "Inventory default constructor called" << std::endl;
+	memSetNull();
+	std::cout << "[Inventory] default constructor called" << std::endl;
 }
 
 Inventory::Inventory(int size) : index(0), maxStock(size), materia(new AMateria*[size])
 {
-	//std::cout << "Inventory default constructor called" << std::endl;
+	memSetNull();
+	std::cout << "[Inventory] size constructor called" << std::endl;
 }
 
 Inventory::Inventory(const Inventory& cpy)
 {
 	*this = cpy;
-	std::cout << "Inventory cpy constructor called" << std::endl;
+	std::cout << "[Inventory] cpy constructor called" << std::endl;
 }
 
 Inventory::~Inventory()
 {
-	std::cout << "Inventory destructor called" << std::endl;
+	this->clearStock();
+	delete[] this->materia;
+	std::cout << "[Inventory] destructor called" << std::endl;
 }
 
 /*************************************
@@ -51,38 +58,77 @@ Inventory&	Inventory::operator=(const Inventory &rhs)
 }
 
 /*************************************
- *			member Function
+ *		public member Function
  * ***********************************/
 void	Inventory::addMateria(AMateria* m)
 {
-	if (index < this->maxStock){
-		for (int i; i < this->maxStock; i++)
-			if (!this->materia[index])
+	if (this->index < this->maxStock){
+
+		for (int i = 0; i < this->maxStock; i++)
+			if (!this->materia[i])
 			{
-				this->materia[index] = m;
+				this->materia[i] = m;
 				break ;
 			}
 		this->index++;
 	}
 }
 
-void	Inventory::removeMateria(int i){
+void	Inventory::removeMateria(int i)
+{
 	if (i < this->maxStock)
-		this->materia[index] = NULL;
-	index--;
+	{
+		this->materia[i] = NULL;
+		index--;
+	}
 }
+
+AMateria*	Inventory::getMateria(int idx)
+{
+	if (idx < this->maxStock)
+		return (this->materia[idx]);
+	std::cerr << "idx: " << idx << "incorrect" << std::endl;
+	return (NULL);
+}
+
+void	Inventory::showAllStock( void )
+{
+	std::cout << "Materia inventory tab: " << std::endl;
+	for (int i = 0; i < this->maxStock; i++)
+	{
+		if (this->materia[i])
+			std::cout << i << " : " << (*(this->materia[i])).getType() << std::endl;
+		else
+			std::cout << i << " : [empty]" << std::endl;
+	}
+}
+
+bool	Inventory::checkInStock(std::string const &type){
+	for (int i = 0; i < this->maxStock; i++)
+		if (this->materia[i]->getType() == type)
+			return (1);
+	return (0);
+}
+
+/*************************************
+ *			private Function
+ * ***********************************/
+void	Inventory::clearStock(){
+		for (int i = 0; i < this->maxStock; i++)
+			if (this->materia[i])
+				delete this->materia[i];
+}
+
+void	Inventory::memSetNull(){
+	for (int i = 0; i < maxStock; i++)
+		this->materia[i] = NULL;
+}
+
 
 // const Inventory* Inventory::getAddress( void )
 // {
 // 	return (this);
 // }
-
-void	Inventory::getAllStock( void )
-{
-	std::cout << "Materia inventory tab: " << std::endl;
-	for (int i = 0; i < this->index; i++)
-		std::cout << i << " : " << (*(this->materia[i])).getType() << std::endl;
-}
 
 // const std::string	Inventory::getIdea(int i)
 // {
@@ -91,9 +137,3 @@ void	Inventory::getAllStock( void )
 // 	else
 // 		return ("");
 // }
-
-void	Inventory::clearStock(){
-		for (int i = 0; i < maxStock; i++)
-			if (this->materia[i])
-				delete this->materia[i];
-}

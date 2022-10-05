@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:38:11 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/04 21:13:26 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/05 15:01:31 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ class Inventory {
 
 		void				addMateria(AMateria* m);
 		void				removeMateria(int i);
-		//const Inventory*	getAddress( void );
-		void				getAllStock( void );
-		//const std::string	getIdea(int i);
-		bool				checkInStock(std::string const &type);
+		AMateria*			getMateria(int idx);
 
+		void				showAllStock( void );
+		bool				checkInStock(std::string const &type);
+		//const Inventory*	getAddress( void );
+		//const std::string	getIdea(int i);
 	protected:
 
 	private:
@@ -41,6 +42,7 @@ class Inventory {
 		int			maxStock;
 		AMateria	**materia;
 		void		clearStock();
+		void		memSetNull();
 };
 
 #endif
@@ -53,3 +55,5 @@ class Inventory {
 // 			return (1);
 // 	return (0);
 // }
+
+

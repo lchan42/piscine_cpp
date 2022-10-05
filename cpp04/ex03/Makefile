@@ -6,13 +6,13 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/10/04 19:21:56 by lchan            ###   ########.fr        #
+#    Updated: 2022/10/05 11:08:01 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	cpp04ex03
-SRCS	=	main.cpp AMateria.cpp Character.cpp MateriaSource.cpp Ice.cpp
-HEADER	=	AMateria.hpp Character.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp Macro.hpp Ice.hpp
+SRCS	=	main.cpp AMateria.cpp Character.cpp MateriaSource.cpp Ice.cpp Inventory.cpp
+HEADER	=	AMateria.hpp Character.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp Macro.hpp Ice.hpp Inventory.hpp
 OBJS	=	$(SRCS:.cpp=.o)
 COMPIL	=	c++
 FLAGS	=	-std=c++98 -Wall -Wextra -Werror -g3

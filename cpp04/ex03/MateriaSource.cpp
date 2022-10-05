@@ -5,20 +5,20 @@
 /******************************
  *		Coplien Form
  * ****************************/
-MateriaSource::MateriaSource() : {
+MateriaSource::MateriaSource() {
 
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	std::cout << "[MateriaSource] default constructor called" << std::endl;
 }
 
 MateriaSource::MateriaSource(MateriaSource &cpy) {
 
 	*this = cpy;
-	std::cout << "MateriaSource param constructor called" << std::endl;
+	std::cout << "[MateriaSource] param constructor called" << std::endl;
 }
 
 MateriaSource::~MateriaSource(){
 
-	std::cout << "MateriaSource destructor called" << std::endl;
+	std::cout << "[MateriaSource] destructor called" << std::endl;
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& rhs){
@@ -46,6 +46,10 @@ AMateria* MateriaSource::createMateria(std::string const & type){
 		//return (new Cure);
 	}
 	return (NULL);
+}
+
+Inventory & MateriaSource::getInventory(){
+	return (this->inventory);
 }
 
 // void	MateriaSource::cleanStock(){

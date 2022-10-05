@@ -7,7 +7,7 @@
 
 AMateria::AMateria() : type(""), intType(NOTYPE){
 
-	std::cout << "AMateria default constructor called" << std::endl;
+	std::cout << "[AMateria] default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : type(type), intType(NOTYPE){
@@ -16,18 +16,18 @@ AMateria::AMateria(std::string const & type) : type(type), intType(NOTYPE){
 	for (int i = 0; i < MAXTYPE; i++)
 		if (type == knownType[i])
 			this->intType = i;
-	std::cout << "AMateria param constructor called" << std::endl;
+	std::cout << "[AMateria] param constructor called" << std::endl;
 }
 
 AMateria::~AMateria(){
 
-	std::cout << "AMateria default destructor called" << std::endl;
+	std::cout << "[AMateria] default destructor called" << std::endl;
 }
 
 AMateria&	AMateria::operator=(const AMateria& rhs){
 
 	this->type = rhs.type;
-	std::cout << "AMateria operator= used" << std::endl;
+	std::cout << "[AMateria] operator= used" << std::endl;
 
 	return (*this);
 }
@@ -38,7 +38,6 @@ std::string const &	AMateria::getType() const{
 
 void 	AMateria::use(ICharacter& target){
 
-	(void) target;
 	switch (this->intType)
 	{
 	case ICE:
@@ -51,7 +50,7 @@ void 	AMateria::use(ICharacter& target){
 		std::cout << "* shoots an fire bolt at " << target.getName() << " *" << std::endl;
 		break;
 	default:
-		std::cout << "unknown type does nothing	" << std::endl;
+		std::cout << "* unknown type does nothing *" << std::endl;
 		break;
 	}
 

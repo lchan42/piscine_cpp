@@ -13,28 +13,25 @@ enum {
 	MAXTYPE
 };
 
-
-
 class ICharacter;
 
 class AMateria {
 	protected:
 
 	public:
-	AMateria();
-	AMateria(std::string const & type);
-	virtual ~AMateria();
+		AMateria();
+		AMateria(std::string const & type);
+		virtual ~AMateria();
 
-	AMateria&	operator=(const AMateria& rhs);
+		AMateria&			operator=(const AMateria& rhs);
 
-	std::string const &	getType() const; 			//Returns the materia type
-	virtual AMateria*	clone() const = 0;
-	virtual void 		use(ICharacter& target);
+		std::string const&	getType() const;
+		virtual AMateria*	clone() const = 0;
+		virtual void 		use(ICharacter& target);
 
 	private:
 		std::string				type;
 		int						intType;
-		// static std::string		KnownType[3];
 };
 
 #endif
