@@ -2,6 +2,7 @@
 #include "Ice.hpp"
 #include "Fire.hpp"
 #include "Cure.hpp"
+#include <stdio.h>
 
 
 /******************************
@@ -40,15 +41,9 @@ void MateriaSource::learnMateria(AMateria* m){
 
 AMateria* MateriaSource::createMateria(std::string const & type){
 
-	if (this->inventory.checkInStock(type))
-	{
-		if (type == "ice")
-			return (new Ice);
-		else if (type == "cure")
-			return (new Cure);
-		else if (type == "fire")
-		return (new Fire);
-	}
+	int	i = this->inventory.checkInStock(type);
+	if (i >= 0)
+		return(this->inventory.getMateria(i)->clone());
 	return (NULL);
 }
 

@@ -21,11 +21,6 @@ class MateriaSource : public IMateriaSource {
 		private:
 
 		Inventory		inventory;
-		//	int			index;
-		//	AMateria	*_stock[STOCK_SIZE];
-		//	void		cleanStock();
-		//	bool		checkInStock(std::string const & type);
-
 };
 
 #endif

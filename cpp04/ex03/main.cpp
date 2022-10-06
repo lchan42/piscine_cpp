@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:18:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 18:01:46 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 14:56:32 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,25 @@
 #include "Ice.hpp"
 #include "Fire.hpp"
 #include "Cure.hpp"
+
+void	checkMateriaSourceCreation(){
+	std::cout << "\n>>>>>>>>>> checkMateriaSourceCreation test <<<<<<<<<<\n" << std::endl;
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Fire());
+	src->getInventory().showAllStock();
+
+	AMateria*		save1 = src->createMateria("ice");
+	AMateria*		save2 = src->createMateria("fire");
+ 	src->createMateria("cure"); // fail to find cure in inventory = no clone
+
+	std::cout << "........... calling destructors ..........." << std::endl;
+	delete save1;
+	delete save2;
+	delete src;
+	//delete save3;
+}
 
 void	checkMateriaSource()
 {
@@ -38,6 +57,8 @@ void	checkMateriaSource()
 
 	src->learnMateria(new Ice());
 	src->getInventory().showAllStock();
+
+
 
 	std::cout << "........... calling destructors ..........." << std::endl;
 	delete src;
@@ -124,7 +145,7 @@ void	CheckSubjectMain(){
 }
 
 int	main( void ){
-
+	checkMateriaSourceCreation();
 	checkMateriaSource();
 	checkCaracters();
 	CheckSubjectMain();

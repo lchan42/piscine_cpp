@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:38:11 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 15:01:31 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 14:56:02 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "AMateria.hpp"
 
 #define	DFT_STOCK 4
-//#define MAX_STOCK 4
-
 class Inventory {
 	public:
 		Inventory();
@@ -32,9 +30,8 @@ class Inventory {
 		AMateria*			getMateria(int idx);
 
 		void				showAllStock( void );
-		bool				checkInStock(std::string const &type);
-		//const Inventory*	getAddress( void );
-		//const std::string	getIdea(int i);
+		int				checkInStock(std::string const &type);
+
 	protected:
 
 	private:
@@ -46,14 +43,3 @@ class Inventory {
 };
 
 #endif
-
-
-// bool	MateriaSource::checkInStock(std::string const & type){
-
-// 	for (int i = 0; i < STOCK_SIZE; i++)
-// 		if(!type.empty() && type == this->_stock[i]->getType())
-// 			return (1);
-// 	return (0);
-// }
-
-

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:42:43 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/05 17:52:26 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 14:42:44 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,11 @@ void	Inventory::showAllStock( void )
 	}
 }
 
-bool	Inventory::checkInStock(std::string const &type){
+int	Inventory::checkInStock(std::string const &type){
 	for (int i = 0; i < this->maxStock; i++)
 		if (this->materia[i] && this->materia[i]->getType() == type)
-				return (1);
-	return (0);
+				return (i);
+	return (-1);
 }
 
 /*************************************

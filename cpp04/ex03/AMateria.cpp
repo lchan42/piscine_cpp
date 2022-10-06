@@ -26,7 +26,7 @@ AMateria::~AMateria(){
 AMateria&	AMateria::operator=(const AMateria& rhs){
 
 	this->type = rhs.type;
-	std::cout << "[AMateria] operator= used" << std::endl;
+	//std::cout << "[AMateria] operator= used" << std::endl;
 
 	return (*this);
 }
