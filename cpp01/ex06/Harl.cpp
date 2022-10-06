@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:08:08 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/18 18:54:39 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 14:17:51 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,23 @@ Harl::~Harl( void ){
 }
 
 void	Harl::debug( void ){
-	std::cout << DEBUG_MESS << std::endl;
+	std::cout	<<"[ DEBUG ]\n"
+				<< DEBUG_MESS << std::endl;
 }
 
 void	Harl::info( void ){
-	std::cout << INFO_MESS << std::endl;
+	std::cout	<< "[ INFO ]\n"
+				<< INFO_MESS << std::endl;
 }
 
 void	Harl::warning( void ){
-	std::cout << WARNI_MESS << std::endl;
+	std::cout	<< "[ WARNING ]\n"
+				<< WARNI_MESS << std::endl;
 }
 
 void	Harl::error( void ){
-	std::cout << COMPL_MESS << std::endl;
+	std::cout	<< "[ ERROR ]\n"
+				<< ERROR_MESS << std::endl;
 }
 
 void	Harl::switchHarl( int i ){
@@ -45,8 +49,11 @@ void	Harl::switchHarl( int i ){
 		this->info();
 	case 2:
 		this->warning();
-	default:
+	case 3:
 		this->error();
+		break;
+	default:
+		std::cout << COMPL_MESS << std::endl;
 		break;
 	}
 }
