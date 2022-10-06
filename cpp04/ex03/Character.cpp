@@ -26,6 +26,7 @@ Character::~Character(){
 Character&	Character::operator=(const Character& rhs){
 
 		this->inventory = rhs.inventory;
+		this->_name = rhs._name;
 	return (*this);
 }
 

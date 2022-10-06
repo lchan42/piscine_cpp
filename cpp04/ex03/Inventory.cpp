@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:42:43 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 14:42:44 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 18:51:27 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ Inventory::~Inventory()
 Inventory&	Inventory::operator=(const Inventory &rhs)
 {
 
-	//std::cout << "Inventory operator= called" << std::endl;
+	std::cout << "Inventory operator= called" << std::endl;
 	this->clearStock();
 	this->index = rhs.index;
 	for(int i = 0; i < rhs.maxStock ; i++)
-		this->materia[i] = rhs.materia[i];
+		if (rhs.materia[i])
+			this->materia[i] = (*(rhs.materia[i])).clone();
 	return (*this);
 }
 

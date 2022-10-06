@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:18:26 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 14:56:32 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 18:53:56 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,9 +144,31 @@ void	CheckSubjectMain(){
 	delete src;
 }
 
+void	checkCaracterCpy(){
+	AMateria		*MIce = new Ice;
+	AMateria		*MCure = new Cure;
+	AMateria		*MFire = new Fire;
+	Character		Genova("Genova");
+	Character		Peon("Peon");
+
+
+	Genova.equip(MIce);
+	Genova.equip(MCure);
+	Genova.equip(MFire);
+	for(int i = 0; i < 4; i++)
+		Genova.use(i, Peon);
+
+	Character		GenovaCpy(Genova);
+	for(int i = 0; i < 4; i++)
+	 	GenovaCpy.use(i, Peon);
+
+	std::cout << "........... calling destructors ..........." << std::endl;
+}
+
 int	main( void ){
 	checkMateriaSourceCreation();
 	checkMateriaSource();
 	checkCaracters();
+	checkCaracterCpy();
 	CheckSubjectMain();
 }

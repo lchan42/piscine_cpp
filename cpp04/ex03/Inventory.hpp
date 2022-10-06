@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 18:38:11 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 14:56:02 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 18:37:34 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class Inventory {
 		AMateria*			getMateria(int idx);
 
 		void				showAllStock( void );
-		int				checkInStock(std::string const &type);
+		int					checkInStock(std::string const &type);
 
 	protected:
 
