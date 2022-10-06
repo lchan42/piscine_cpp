@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/17 18:36:43 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 14:21:23 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 15:20:26 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Harl{
 		void	info( void );
 		void	warning( void );
 		void	error( void );
+		void	dft( void );
 		void	switchHarl (int i);
 };
 

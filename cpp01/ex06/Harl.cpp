@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 17:08:08 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 14:17:51 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 15:23:36 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	Harl::error( void ){
 				<< ERROR_MESS << std::endl;
 }
 
+void	Harl::dft( void ){
+	std::cout << COMPL_MESS << std::endl;
+}
+
 void	Harl::switchHarl( int i ){
 	switch (i)
 	{
@@ -53,7 +57,7 @@ void	Harl::switchHarl( int i ){
 		this->error();
 		break;
 	default:
-		std::cout << COMPL_MESS << std::endl;
+		this->dft();
 		break;
 	}
 }
@@ -61,7 +65,7 @@ void	Harl::switchHarl( int i ){
 void	Harl::switchComplain( std::string level ){
 
 	int	i = -1;
-	std::string names[KWN_PHRASE] = { "DEBUG", "INFO", "WARNING", "ERROR"};
+	std::string names[KWN_PHRASE -1] = { "DEBUG", "INFO", "WARNING", "ERROR"};
 
 	while (++i < KWN_PHRASE - 1)
 		if (names[i] == level)
@@ -74,8 +78,8 @@ typedef void (Harl::*callback_t)( void );
 void	Harl::complain( std::string level ){
 
 	int	i = -1;
-	std::string names[KWN_PHRASE] = { "DEBUG", "INFO", "WARNING", "ERROR"};
-	callback_t callbacks[KWN_PHRASE] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string names[KWN_PHRASE -1] = { "DEBUG", "INFO", "WARNING", "ERROR"};
+	callback_t callbacks[KWN_PHRASE] = { &Harl::debug, &Harl::info, &Harl::warning, &Harl::error, &Harl::dft};
 
 	while (++i < KWN_PHRASE - 1)
 		if (names[i] == level)
