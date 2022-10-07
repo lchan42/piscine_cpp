@@ -1,36 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 18:01:35 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 12:31:05 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/07 11:06:59 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/07 11:07:00 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
-
-#include "Animal.hpp"
-
-class Dog : public Animal {
-
-	public:
-		Dog();
-		Dog(const Dog &cpy);
-		/*virtual*/	~Dog();
-
-		virtual void	makeSound();
-		Brain 			*getBrain();
-
-		virtual Dog&	operator=(const Dog &rhs);
-
-	protected:
-
-	private:
-		Brain* brain;
-};
-
-#endif

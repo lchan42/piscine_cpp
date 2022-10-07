@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/01 18:01:35 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/06 12:31:05 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/07 11:06:49 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/07 11:30:35 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-# define DOG_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Dog : public Animal {
-
+class Bureaucrat {
 	public:
-		Dog();
-		Dog(const Dog &cpy);
-		/*virtual*/	~Dog();
+		Bureaucrat();
+		Bureaucrat(const Bureaucrat &cpy);
+		~Bureaucrat();
 
-		virtual void	makeSound();
-		Brain 			*getBrain();
+		Bureaucrat&	operator=(const Bureaucrat& rhs);
 
-		virtual Dog&	operator=(const Dog &rhs);
-
-	protected:
-
+		const std::string	&getname();
+		const int			getGrade();
+		void				gradeUp();
+		void				gradeDown();
 	private:
-		Brain* brain;
+		std::string _name;
+		int			_grade;
 };
 
 #endif

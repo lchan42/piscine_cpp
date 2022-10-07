@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:42:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 17:05:43 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 11:05:53 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	main( void )
 {
 	testDogOperator();
 	testCatOperator();
-	testAnimalTab();
+	//testAnimalTab();
 	std::cout << " \n>>>>>>>>>>> destructor called <<<<<<<<<<<<" << std::endl;
 }
 

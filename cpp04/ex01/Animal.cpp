@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 15:31:10 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/03 16:08:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/06 12:09:27 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ std::string	Animal::getType()
 	return (this->type);
 }
 
-void		Animal::setType(std::string type)
+void	Animal::setType(std::string type)
 {
 	this->type = type;
 }
