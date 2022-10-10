@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:49 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/07 18:22:12 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/10 12:41:31 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class Bureaucrat {
 		void				gradeDown();
 
 	private:
-		std::string _name;
+		const std::string _name;
 		int			_grade;
 
 		class GradeTooHighException : public std::exception {
@@ -47,7 +47,7 @@ class Bureaucrat {
 				const std::string gradeTooLow(const std::string &name) const throw(){
 					return (name + " grade is too low");
 				}
-		} TooLow;
+		}TooLow;
 
 		void		setGrade(int i);
 		Bureaucrat&	operator++( void );

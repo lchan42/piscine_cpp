@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/07 18:27:08 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/10 12:42:10 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Bureaucrat::~Bureaucrat(){
  * *********************************/
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &rhs){
-	this->_name = rhs._name;
+	//this->_name = rhs._name; --> subject says the variable is const, therefor it cant be set outside of the initialisation list
 	this->_grade = rhs._grade;
 	return (*this);
 }

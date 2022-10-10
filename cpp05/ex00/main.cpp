@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:52 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/07 18:26:36 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/10 12:42:51 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ int	main(){
 	};
 
 	Bureaucrat ceo = Bureaucrat("CEO", 1);
+	// Bureaucrat ceoOperatorEgal = ceo;
+	//std::cout << ceoOperatorEgal << std::endl;
+
 	Bureaucrat intern = Bureaucrat();
 
 	std::cout << ceo << std::endl;
