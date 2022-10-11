@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:52 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/12 00:45:54 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/12 01:17:09 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int	main(){
 	ceo.signForm(r1);
 	ceo.executeForm(r1);
 
-	// ceo.signForm(s1);
-	// ceo.executeForm(s1);
+	ceo.signForm(s1);
+	ceo.executeForm(s1);
 }

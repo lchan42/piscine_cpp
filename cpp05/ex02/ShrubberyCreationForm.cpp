@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:38:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/12 00:46:31 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/12 01:17:26 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ ShrubberyCreationForm::ShrubberyCreationForm()
 	std::cout << "[ShrubberyCreationForm] default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
 	: Form::Form("ShrubberyCreationForm", SF_SIGN, SF_EXCE, target) {
 	std::cout << "[ShrubberyCreationForm] param constructor called" << std::endl;
 }
@@ -42,5 +42,5 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreation
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 
-	std::cout << this->getTarget() << "has been forgiven by Zaphod Beeblebrox." << std::endl;
+	std::cout << executor.getName() << " has been forgiven by Zaphod Beeblebrox." << std::endl;
 }
