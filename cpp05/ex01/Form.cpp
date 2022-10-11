@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:30:33 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/11 12:35:13 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 12:46:12 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void		Form::beSigned(const Bureaucrat &b){
 	if (b.getGrade() > _signLvl)
 		throw TooLow;
 	_signStatus = SIGNED;
-	std::cout	<< b.getname() << " signed form " << _name << std::endl;
+	std::cout	<< b.getName() << " signed form " << _name << std::endl;
 }
 
 // const std::string Form::GradeTooLowException::gradeToolow(Bureaucrat &b, Form &f) const throw(){
 // {
-// 					return (" Bureaucrat :" + b.getname()
+// 					return (" Bureaucrat :" + b.getName()
 // 							+ "couldn't sign form: " + f.getName()
 // 							+ "because his grade is too low)");
 // }

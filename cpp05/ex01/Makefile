@@ -6,11 +6,11 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/10/11 11:40:30 by lchan            ###   ########.fr        #
+#    Updated: 2022/10/11 13:03:59 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cpp05ex00
+NAME	=	cpp05ex01
 SRCS	=	main.cpp Bureaucrat.cpp Form.cpp
 HEADER	=	Bureaucrat.hpp Form.hpp
 OBJS	=	$(SRCS:.cpp=.o)

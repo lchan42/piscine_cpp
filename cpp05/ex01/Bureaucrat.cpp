@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/11 12:26:24 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 12:46:12 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ Bureaucrat	Bureaucrat::operator--(int i){
  *			getter/setter
  * *********************************/
 
-std::string	Bureaucrat::getname() const {
+std::string	Bureaucrat::getName() const {
 	return (_name);
 }
 
@@ -117,7 +117,7 @@ void	Bureaucrat::gradeUp(){
 		--(*this);
 	}
 	catch (Bureaucrat::GradeTooHighException &e){
-		std::cerr << e.gradeTooHigh(this->getname()) << std::endl;
+		std::cerr << e.gradeTooHigh(this->getName()) << std::endl;
 	}
 }
 
@@ -128,7 +128,7 @@ void	Bureaucrat::gradeDown(){
 		++(*this);
 	}
 	catch (Bureaucrat::GradeTooLowException &e){
-		std::cerr << e.gradeTooLow(this->getname()) << std::endl;
+		std::cerr << e.gradeTooLow(this->getName()) << std::endl;
 	}
 }
 
@@ -143,11 +143,9 @@ void	Bureaucrat::signForm(Form &f){
 					<< ") couldn't sign form " << f.getName()
 					<< " (required grade : " << f.getSignLvl() << ")" <<std::endl;
 	}
-
 }
 
-
 std::ostream& operator<<(std::ostream& o,  Bureaucrat const & rhs){
-	o << rhs.getname() << ", bureaucrat grade " << rhs.getGrade();
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 	return (o);
 }

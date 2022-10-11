@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:30:17 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/11 12:23:59 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 12:46:12 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ class Form {
 					return ("grade is too low");
 				}
 				// const std::string gradeTooHigh(Form &f, Bureaucrat &b) const throw(){
-				// 	return (f.getName() + " grade is too high for " + b.getname());
+				// 	return (f.getName() + " grade is too high for " + b.getName());
 				// } //error message : member access into incomplete type --> can someone explain to me this dark magic ??
 		}TooLow;
 
