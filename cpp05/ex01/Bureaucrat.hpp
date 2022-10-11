@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:49 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/07 18:22:12 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 11:30:24 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,14 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+# include "Form.hpp"
+
 # define MAX_GRADE 1
 # define MIN_GRADE 150
+
+
+
+class Form;
 
 class Bureaucrat {
 	public:
@@ -27,14 +33,15 @@ class Bureaucrat {
 		Bureaucrat&	operator=(const Bureaucrat& rhs);
 
 
-		const std::string	&getname() const;
+		std::string			getname() const;
 		int					getGrade() const;
 		void				gradeUp();
 		void				gradeDown();
+		void				signForm(Form &f);
 
 	private:
-		std::string _name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 		class GradeTooHighException : public std::exception {
 			public:

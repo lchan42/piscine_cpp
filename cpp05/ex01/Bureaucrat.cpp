@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:59 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/07 18:27:08 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 12:26:24 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Bureaucrat::~Bureaucrat(){
  * *********************************/
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &rhs){
-	this->_name = rhs._name;
+	//this->_name = rhs._name;
 	this->_grade = rhs._grade;
 	return (*this);
 }
@@ -91,7 +91,7 @@ Bureaucrat	Bureaucrat::operator--(int i){
  *			getter/setter
  * *********************************/
 
-const std::string	&Bureaucrat::getname() const {
+std::string	Bureaucrat::getname() const {
 	return (_name);
 }
 
@@ -107,7 +107,7 @@ void		Bureaucrat::setGrade(int i){
 	this->_grade = i;
 }
 /***********************************
- *		increment/decrement grade
+ *		inher function
  * *********************************/
 
 void	Bureaucrat::gradeUp(){
@@ -131,6 +131,21 @@ void	Bureaucrat::gradeDown(){
 		std::cerr << e.gradeTooLow(this->getname()) << std::endl;
 	}
 }
+
+void	Bureaucrat::signForm(Form &f){
+
+	try{
+		f.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e){
+		std::cout	<< "signForm exception caught : " << e.what() << std::endl;
+		std::cerr	<< _name << " (grade: " << _grade
+					<< ") couldn't sign form " << f.getName()
+					<< " (required grade : " << f.getSignLvl() << ")" <<std::endl;
+	}
+
+}
+
 
 std::ostream& operator<<(std::ostream& o,  Bureaucrat const & rhs){
 	o << rhs.getname() << ", bureaucrat grade " << rhs.getGrade();
