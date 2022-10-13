@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:52 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/13 20:23:01 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/13 20:29:54 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ int	main(){
 	std::cout << empty2 << std::endl;
 
 	std::cout << "~~~~~~~~~~~~~~ >>>>>>>>>> checking Intern::makeForm() 1 <<<<<<<<<< ~~~~~~~~~~~~~~" << std::endl;
-	Form *r1 = newIntern.makeForm("robotomy request", "DryLand");
+	Form *r1 = newIntern.makeForm("robotomy request", "Kuma");
 	std::cout << "\n" << *r1 << "\n" << std::endl;
 	ceo.signForm(*r1);
 	ceo.executeForm(*r1);
 
 	std::cout << "~~~~~~~~~~~~~~ >>>>>>>>>> checking Intern::makeForm() 2 <<<<<<<<<< ~~~~~~~~~~~~~~" << std::endl;
-	Form *s1 = newIntern.makeForm("shrubbery creation", "dryland");
+	Form *s1 = newIntern.makeForm("shrubbery creation", "Earth");
 	std::cout << "\n" << *s1 << "\n" << std::endl;
 	ceo.signForm(*s1);
 	ceo.executeForm(*s1);
