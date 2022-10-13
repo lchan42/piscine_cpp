@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:38:00 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/13 11:23:49 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/13 13:03:01 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
  * *********************************/
 
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: Form::Form("ShrubberyCreationForm", SF_SIGN, SF_EXCE, "NA") {
+	: Form::Form(SHRUBB_NAME, SF_SIGN, SF_EXCE, "NA") {
 	std::cout << "[ShrubberyCreationForm] default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
-	: Form::Form("ShrubberyCreationForm", SF_SIGN, SF_EXCE, target) {
+	: Form::Form(SHRUBB_NAME, SF_SIGN, SF_EXCE, target) {
 	std::cout << "[ShrubberyCreationForm] param constructor called" << std::endl;
 }
 

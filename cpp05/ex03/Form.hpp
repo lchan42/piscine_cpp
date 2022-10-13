@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 18:30:17 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/13 20:25:27 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/13 20:21:45 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#define PRESID_NAME "presidential pardon"
+#define ROBOTO_NAME "robotomy request"
+#define SHRUBB_NAME "shrubbery creation"
 
 enum {
 	UNSIGNED,
@@ -38,7 +41,7 @@ class Form {
 		Form();
 		Form(const Form &cpy);
 		Form(std::string name, int slvl, int elvl, std::string target);
-		~Form();
+		virtual ~Form();
 
 		Form&	operator=(const Form & rhs);
 

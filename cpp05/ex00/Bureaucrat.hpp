@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 11:06:49 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/10 12:41:31 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/11 12:46:12 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Bureaucrat {
 		Bureaucrat&	operator=(const Bureaucrat& rhs);
 
 
-		const std::string	&getname() const;
+		const std::string	&getName() const;
 		int					getGrade() const;
 		void				gradeUp();
 		void				gradeDown();

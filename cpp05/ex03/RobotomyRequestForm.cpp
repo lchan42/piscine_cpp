@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 14:37:51 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/13 11:29:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/13 13:02:33 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
  * *********************************/
 
 RobotomyRequestForm::RobotomyRequestForm()
-	: Form::Form("RobotomyRequestForm", RF_SIGN, RF_EXCE, "NA") {
+	: Form::Form(ROBOTO_NAME, RF_SIGN, RF_EXCE, "NA") {
 	std::cout << "[RobotomyRequestForm] default constructor called" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string target)
-	: Form::Form("RobotomyRequestForm", RF_SIGN, RF_EXCE, target) {
+	: Form::Form(ROBOTO_NAME, RF_SIGN, RF_EXCE, target) {
 	std::cout << "[RobotomyRequestForm] param constructor called" << std::endl;
 }
 
