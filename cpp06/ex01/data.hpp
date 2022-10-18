@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   data.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/14 18:16:05 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/18 11:07:37 by lchan            ###   ########.fr       */
+/*   Created: 2022/10/18 14:25:09 by lchan             #+#    #+#             */
+/*   Updated: 2022/10/18 14:26:37 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#ifndef DATA_HPP
+#define DATA_HPP
 
-int	main(int argc, char **argv){
+#include <iostream>
 
-	if (argc != 2)
-	{
-		std::cerr << "argc error" << std::endl;
-		return (1);
-	}
+struct Data {
 
-	std::string av = argv[1];
-	//double d = strtod(argv[1], NULL);
-	Convertor	conv(argv[1]);
+	int	data;
+	int blabla;
+	std::string str;
+};
 
-	conv.convert();
-
-	//std::cout << "double = " << d << std::endl;
-}
+#endif

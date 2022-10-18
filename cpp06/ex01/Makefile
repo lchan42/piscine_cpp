@@ -6,13 +6,13 @@
 #    By: lchan <lchan@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/16 15:50:50 by lchan             #+#    #+#              #
-#    Updated: 2022/10/18 13:48:39 by lchan            ###   ########.fr        #
+#    Updated: 2022/10/18 14:36:03 by lchan            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	cpp06ex00
-SRCS	=	main.cpp Conversion.cpp
-HEADER	=	Conversion.hpp
+NAME	=	cpp06ex01
+SRCS	=	main.cpp
+HEADER	=	data.hpp
 OBJS	=	$(SRCS:.cpp=.o)
 COMPIL	=	c++
 FLAGS	=	-std=c++98 -Wall -Wextra -Werror -g3

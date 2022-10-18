@@ -6,25 +6,30 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 18:16:05 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/18 11:07:37 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/18 14:38:29 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "data.hpp"
+//#include <cstdint>
+#include <stdint.h>
 
-int	main(int argc, char **argv){
+uintptr_t serialize(Data* ptr){
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
 
-	if (argc != 2)
-	{
-		std::cerr << "argc error" << std::endl;
-		return (1);
-	}
+Data* deserialize(uintptr_t raw){
+	return (reinterpret_cast<Data*>(raw));
+}
 
-	std::string av = argv[1];
-	//double d = strtod(argv[1], NULL);
-	Convertor	conv(argv[1]);
+int	main(){
 
-	conv.convert();
+	Data d;
+	uintptr_t u_int = serialize(&d);
 
-	//std::cout << "double = " << d << std::endl;
+	//deserialize(serialize(&d));
+	std::cout << "address of d = " << &d << std::endl;
+	std::cout << "address of d = " << u_int << std::endl;
+	std::cout << "deserialize = " << deserialize(u_int) << std::endl;
+	std::cout << "&d == deserialize(u_int)) ? " <<((&d == deserialize(u_int)) ? ">>>>>>>> YES <<<<<<<<<" : "NO :( .......") << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 18:15:05 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/17 21:02:54 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/18 13:48:07 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <limits>
 #include <stdint.h>
 #include <float.h>
+#include <errno.h>
+
 #define BASE_TEN 10
 
 enum e_type {
@@ -26,6 +28,10 @@ enum e_type {
 	DOUBLE,
 	FLOAT,
 	E_TYPE_NBR
+};
+
+enum e_type_litteral{
+
 };
 
 enum e_choise{
@@ -45,26 +51,22 @@ class Convertor{
 
 		void	convert();
 		void	setType();
-		//void	printAll();
 
-		int			getBitFlag();
-		char		getChar();
-		int			getInt();
-		double		getDouble();
-		float		getFloat();
-
-		int isChar();
-		int isInt();
-		int isDouble();
-		int isFloat();
-
+		int		getBitFlag();
+		char	getChar();
+		int		getInt();
+		double	getDouble();
+		float	getFloat();
+		int		isChar();
+		int		isInt();
+		int		isDouble();
+		int		isFloat();
+		int		caseLitteral();
 
 	private:
 		std::string	_av;
-		long		_converted;
-
+		long double	_converted;
 		int			_bitflag;
-		int			_type;
 		char		_char;
 		int			_int;
 		double		_double;

@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/18 15:37:27 by lchan             #+#    #+#             */
-/*   Updated: 2022/09/18 16:49:01 by lchan            ###   ########.fr       */
+/*   Updated: 2022/10/13 11:02:51 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ bool	Replace::checkIfstream(std::ifstream &ifs){
 }
 
 bool	Replace::checkOfstream(std::ifstream &ifs, std::ofstream &ofs){
-	
+
 	if (!ofs)
 	{
 		std::cerr << "fail to creat outfile\n" << std::endl;
@@ -70,7 +70,7 @@ void	Replace::creatReplace(){
 	if (this->checkIfstream(ifs))
 		return ;
 	std::ofstream	ofs(this->addReplaceToNAme(this->f).c_str());
-	if (this->checkIfstream(ifs))
+	if (this->checkIfstream(ifs)) // not usefull here
 		return ;
 	this->fillOfs(ifs, ofs);
 	ofs.close();
