@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:39:46 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/25 16:53:42 by lchan            ###   ########.fr       */
+/*   Updated: 2022/11/01 19:49:18 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ class Span{
 
 		void	displayLst(void);
 		void	addNumber(int toAdd);
+		// void	addNumberX(int* array, int N);
+		// void	addNumberN(std::vector<int> lst);
+		void	addNumber(std::list<int>::iterator it, std::list<int>::iterator ite);
 		int		shortestSpan();
 		int		longestSpan();
 

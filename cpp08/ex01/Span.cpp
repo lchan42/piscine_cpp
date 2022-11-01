@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:39:07 by lchan             #+#    #+#             */
-/*   Updated: 2022/10/26 14:11:38 by lchan            ###   ########.fr       */
+/*   Updated: 2022/11/01 19:45:08 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,34 @@ void	Span::addNumber(int toAdd){
 		_storage.push_back(toAdd);
 	else
 		throw std::overflow_error("Max storage has been reached");
+}
+
+void	Span::addNumberX(int *array, int X){
+	for (int i = 0; i < X; i++)
+		addNumber(array[i]);
+}
+
+void	Span::addNumberN(std::vector<int> lst){
+
+	std::vector<int>::iterator	it = lst.begin();
+	std::vector<int>::iterator	ite = lst.end();
+
+	try{
+		for (it; it != ite; it++){
+			addNumber(*it);
+	}}
+	catch (std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
+}
+
+void	Span::addNumber(std::list<int>::iterator it, std::list<int>::iterator ite){
+	try{
+		for (it; it != ite; it++)
+			addNumber(*it);
+			//std::for_each(it, ite, addNumber);
+	}
+	catch (std::exception &e){
+		std::cerr << e.what() << std::endl;
+	}
 }
