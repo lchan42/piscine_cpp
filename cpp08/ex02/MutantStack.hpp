@@ -28,8 +28,7 @@ class MutantStack : public std::stack<T>{
 
 	public:
 		MutantStack(){};
-		MutantStack(MutantStack const &cpy) : std::stack<T> (cpy){/*(this->c = cpy.c);*/};
-		//MutantStack(MutantStack const &cpy) : std::stack<T>(cpy){};
+		MutantStack(MutantStack const &cpy) : std::stack<T> (cpy){};
 		~MutantStack(){};
 
 		MutantStack&	operator=(MutantStack const &rhs) {this->c = rhs.c; return *this;};
