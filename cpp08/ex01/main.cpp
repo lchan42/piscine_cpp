@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:39:03 by lchan             #+#    #+#             */
-/*   Updated: 2022/11/01 19:49:04 by lchan            ###   ########.fr       */
+/*   Updated: 2022/11/15 15:13:39 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	testLongestSpan(Span &s1){
 }
 void	testaddNumber(Span &s1)
 {
-	std::cout << "\n>>>>>>>>>> starting addNumber  test <<<<<<<<<<" << std::endl;
+	std::cout << "\n>>>>>>>>>> starting addNumber test <<<<<<<<<<" << std::endl;
 	unsigned int	rdn;
 	srand((unsigned) time(NULL));
 
@@ -80,24 +80,14 @@ int main(void){
 	testShortestSpan(s1);
 	testaddNumber(s1);
 	testLongestSpan(s1);
-	testShortestSpan(s1);
+	testShortestSpan(s2);
 
-	int	array[] = {1, 3, 4, 5};
-	std::vector<int> v1;
+
 	std::list<int> s3;
-
+	
 	for (int i = 0; i < 10; i++)
 		s3.push_back(i);
-	v1.push_back(50000);
-	v1.push_back(32);
-	v1.push_back(45);
-	v1.push_back(14);
-	v1.push_back(4);
-	v1.push_back(97);
 	s2.addNumber(s3.begin(), s3.end());
-	// s2.addNumberN(v1);
-	// s2.displayLst();
-	// s2.addNumberX(array, 4);
 	s2.displayLst();
 	s2.addNumber(s3.begin(), s3.end());
 	s2.displayLst();

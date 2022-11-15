@@ -6,7 +6,7 @@
 /*   By: lchan <lchan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 19:41:31 by lchan             #+#    #+#             */
-/*   Updated: 2022/11/14 20:25:06 by lchan            ###   ########.fr       */
+/*   Updated: 2022/11/15 14:53:09 by lchan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 # define VAL1 101
 # define VAL2 102
-# define VALERR 103
+# define VAL3 103
+# define VALERR 104
 
 template <typename T>
 void    addRdnNumber(T & input)
 {
     try{
         for (int i = 0; i < 10; i++)
-            input.push_back((rand() % 100));
+        {
+           input.push_back((rand() % 100));
+           if (i == 5)
+               input.push_back(VAL3);
+        }
     }
     catch (std::exception &e){
         std::cout << e.what() << std::endl;
@@ -64,5 +69,6 @@ int main ()
     
     tryEasyFind(lst, VAL1);
     tryEasyFind(lst, VAL2);
+    tryEasyFind(lst, VAL3);
     tryEasyFind(lst, VALERR);
 }
